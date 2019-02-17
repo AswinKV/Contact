@@ -11,6 +11,7 @@ import RxSwift
 protocol HomeScreenViewModelling {
     // Input
     var submitButtonClicked: PublishSubject<Void> { get }
+    var addButtonTapped: PublishSubject<Void> { get }
     var cellSelected: PublishSubject<ContactCellViewModeling> { get }
     // Output
     var tableItems: Observable<[CustomSection]> { get }
@@ -22,11 +23,12 @@ class HomeScreenViewModel: HomeScreenViewModelling {
     // Input
     var submitButtonClicked: PublishSubject<Void> = PublishSubject()
     var cellSelected: PublishSubject<ContactCellViewModeling>  = PublishSubject()
-    
+    var addButtonTapped: PublishSubject<Void> = PublishSubject()
     // Output
     var tableItems: Observable<[CustomSection]> = Observable.just([])
     var tableItemTypes: [CellRepresentable.Type] = [ContactCellViewModel.self]
     var contactDetails: Observable<ContactDetail> = Observable.empty()
+    var addContactViewModel: Observable<AddContactViewModelling> = Observable.empty()
     
     private var repository: UserFetching
     init(repository: UserFetching) {
@@ -47,6 +49,11 @@ class HomeScreenViewModel: HomeScreenViewModelling {
                 guard let identifier = viewModel.identifier, !identifier.isEmpty else { fatalError() }
                 return self.getContactDetails(for: identifier)
             })
+        
+        addContactViewModel = addButtonTapped
+            .map {() -> AddContactViewModelling in
+                AddContactViewModel()
+            }
     }
     
     private func fetchUsers() -> Observable<[Contact]> {

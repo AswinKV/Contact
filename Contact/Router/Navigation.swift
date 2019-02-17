@@ -31,10 +31,15 @@ final class Navigation {
         let viewController = HomeViewController(viewModel: viewModel)
         viewController.navigationItem.title = DisplayString.Title.contact
         let addButton = UIBarButtonItem(title: DisplayString.Contact.add, style: UIBarButtonItem.Style.done, target: self, action: nil)
+        addButton.rx.tap.bind(to: viewModel.addButtonTapped).disposed(by: viewController.disposeBag)
         viewController.navigationItem.rightBarButtonItem = addButton
-
+        
         viewModel.contactDetails.subscribe(onNext: { [unowned self] (contactDetail) in
             self.showContactDetails(model: contactDetail)
+        }).disposed(by: viewController.disposeBag)
+        
+        viewModel.addContactViewModel.subscribe(onNext: { [unowned self] (viewModel) in
+            self.showAddContactDetails(viewModel: viewModel)
         }).disposed(by: viewController.disposeBag)
         
         return viewController
@@ -69,5 +74,22 @@ final class Navigation {
             viewController.dismiss(animated: true, completion: nil)
         }).disposed(by: viewController.disposeBag)
     }
+    
+    private func showAddContactDetails(viewModel: AddContactViewModelling) {
+        let viewController = AddContactViewController(viewModel: viewModel)
+        let doneButton = UIBarButtonItem(title: DisplayString.Contact.done, style: UIBarButtonItem.Style.done, target: self, action: nil)
+        let cancelButton = UIBarButtonItem(title: DisplayString.Contact.cancel, style: UIBarButtonItem.Style.plain, target: self, action: nil)
+        viewController.navigationItem.rightBarButtonItem = doneButton
+        viewController.navigationItem.leftBarButtonItem = cancelButton
+        doneButton.rx.tap.bind(to: viewModel.doneTapped).disposed(by: viewController.disposeBag)
+        cancelButton.rx.tap.bind(to: viewModel.cancelTapped).disposed(by: viewController.disposeBag)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.navigationController.present(navigationController, animated: true, completion: nil)
+        
+        viewModel.cancelTapped.subscribe(onNext: {
+            viewController.dismiss(animated: true, completion: nil)
+        }).disposed(by: viewController.disposeBag)
+    }
+
 
 }
