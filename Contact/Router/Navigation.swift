@@ -42,6 +42,28 @@ final class Navigation {
         let editButton = UIBarButtonItem(title: DisplayString.Contact.edit, style: UIBarButtonItem.Style.done, target: self, action: nil)
         viewController.navigationItem.rightBarButtonItem = editButton
         editButton.rx.tap.bind(to: viewModel.editTapped).disposed(by: viewController.disposeBag)
+        
+        viewModel.editContactViewModel.subscribe(onNext: { [unowned self] (viewModel) in
+            self.showEditContactDetails(viewModel: viewModel)
+        }).disposed(by: viewController.disposeBag)
+
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    private func showEditContactDetails(viewModel: EditContactViewModelling) {
+        let viewController = EditContactViewController(viewModel: viewModel)
+        let doneButton = UIBarButtonItem(title: DisplayString.Contact.done, style: UIBarButtonItem.Style.done, target: self, action: nil)
+        let cancelButton = UIBarButtonItem(title: DisplayString.Contact.cancel, style: UIBarButtonItem.Style.plain, target: self, action: nil)
+        viewController.navigationItem.rightBarButtonItem = doneButton
+        viewController.navigationItem.leftBarButtonItem = cancelButton
+        doneButton.rx.tap.bind(to: viewModel.doneTapped).disposed(by: viewController.disposeBag)
+        cancelButton.rx.tap.bind(to: viewModel.cancelTapped).disposed(by: viewController.disposeBag)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.navigationController.present(navigationController, animated: true, completion: nil)
+        
+        viewModel.cancelTapped.subscribe(onNext: {
+            viewController.dismiss(animated: true, completion: nil)
+        }).disposed(by: viewController.disposeBag)
+    }
+
 }

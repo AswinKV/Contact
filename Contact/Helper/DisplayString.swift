@@ -11,7 +11,9 @@ import Foundation
 struct DisplayString {
     
     struct Contact {
-        static let edit = NSLocalizedString("edit", comment: "edit button in contact details screen.")
+        static let edit = NSLocalizedString("edit", comment: "edit button text in contact details screen.")
+        static let done = NSLocalizedString("done", comment: "done button text in edit contact screen.")
+        static let cancel = NSLocalizedString("cancel", comment: "cancel button text in edit contact screen.")
     }
     
     struct General {

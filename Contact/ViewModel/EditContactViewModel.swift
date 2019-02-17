@@ -9,25 +9,25 @@
 import Foundation
 import RxSwift
 
-protocol ContactViewModelling {
+protocol EditContactViewModelling {
     // Input
-    var editTapped: PublishSubject<Void> { get }
+    var doneTapped: PublishSubject<Void> { get }
+    var cancelTapped: PublishSubject<Void> { get }
+    var emailIdText: PublishSubject<String> { get }
     // Output
-    var emailIdText: Observable<String> { get }
     var fullNameText: Observable<String> { get }
     var imageUrl: Observable<URL> { get }
-    var editContactViewModel: Observable<EditContactViewModelling> { get }
 }
 
-class ContactViewModel: ContactViewModelling {
+class EditContactViewModel: EditContactViewModelling {
     // Input
-    var editTapped: PublishSubject<Void> = PublishSubject()
+    var doneTapped: PublishSubject<Void> = PublishSubject()
+    var cancelTapped: PublishSubject<Void> = PublishSubject()
+    var emailIdText: PublishSubject<String> = PublishSubject()
     // Output
-    var emailIdText: Observable<String> = Observable.empty()
     var fullNameText: Observable<String> = Observable.empty()
     var imageUrl: Observable<URL> = Observable.empty()
-    var editContactViewModel: Observable<EditContactViewModelling> = Observable.empty()
-
+    
     let model: ContactDetail
     init(model: ContactDetail) {
         self.model = model
@@ -39,10 +39,6 @@ class ContactViewModel: ContactViewModelling {
         let lastName = model.lastName ?? ""
         let fullName = "\(firstName) \(lastName)"
         
-        emailIdText = Observable
-            .just(model.email)
-            .ignoreNil()
-        
         fullNameText = Observable
             .just(fullName)
         
@@ -50,10 +46,5 @@ class ContactViewModel: ContactViewModelling {
             .just(model.profilePic)
             .map {Helper.toURL(with: $0)}
             .ignoreNil()
-        
-        editContactViewModel = editTapped
-            .map {[unowned self] () -> EditContactViewModelling in
-                EditContactViewModel(model: self.model)
-            }
     }
 }

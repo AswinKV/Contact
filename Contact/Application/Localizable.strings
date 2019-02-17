@@ -8,3 +8,5 @@
 
 edit = "Edit";
 ok = "Ok";
+done = "Done";
+cancel = "Cancel";

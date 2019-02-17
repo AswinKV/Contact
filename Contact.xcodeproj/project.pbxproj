@@ -44,6 +44,8 @@
 		93DC2FD0221943E8003C520D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FCF221943E8003C520D /* UIColor+Extension.swift */; };
 		93DC2FD222194700003C520D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93DC2FD122194700003C520D /* Localizable.strings */; };
 		93DC2FD52219478B003C520D /* DisplayString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FD42219478B003C520D /* DisplayString.swift */; };
+		93DC2FD72219555D003C520D /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FD62219555D003C520D /* EditContactViewController.swift */; };
+		93DC2FD922195581003C520D /* EditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FD822195581003C520D /* EditContactViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		93DC2FCF221943E8003C520D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		93DC2FD122194700003C520D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		93DC2FD42219478B003C520D /* DisplayString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayString.swift; sourceTree = "<group>"; };
+		93DC2FD62219555D003C520D /* EditContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
+		93DC2FD822195581003C520D /* EditContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,7 @@
 			children = (
 				93DC2F9E22192B38003C520D /* HomeViewController.swift */,
 				93DC2FAD22192DE8003C520D /* ContactDetailsViewController.swift */,
+				93DC2FD62219555D003C520D /* EditContactViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				93DC2FA122192C0A003C520D /* HomeScreenViewModel.swift */,
 				93DC2FA922192D36003C520D /* ContactCellViewModel.swift */,
 				93DC2FAB22192D98003C520D /* ContactViewModel.swift */,
+				93DC2FD822195581003C520D /* EditContactViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -477,6 +483,7 @@
 				93DC2FBE22193044003C520D /* UserRepository.swift in Sources */,
 				93DC2FBC22193008003C520D /* ContactsResponse.swift in Sources */,
 				93DC2FA222192C0A003C520D /* HomeScreenViewModel.swift in Sources */,
+				93DC2FD72219555D003C520D /* EditContactViewController.swift in Sources */,
 				93DC2FC62219313B003C520D /* Optional+Extension.swift in Sources */,
 				93DC2F9922192A56003C520D /* Application.swift in Sources */,
 				93DC2FB822192F94003C520D /* CellRepresentable.swift in Sources */,
@@ -494,6 +501,7 @@
 				93DC2FCC221931D8003C520D /* AppConstants.swift in Sources */,
 				93DC2FBA22192FCE003C520D /* ContactDetail.swift in Sources */,
 				93DC2FD52219478B003C520D /* DisplayString.swift in Sources */,
+				93DC2FD922195581003C520D /* EditContactViewModel.swift in Sources */,
 				93DC2FC822193163003C520D /* Helper.swift in Sources */,
 				93DC2F9C22192AA3003C520D /* Navigation.swift in Sources */,
 				93DC2FB422192EE2003C520D /* DataProvider.swift in Sources */,
