@@ -41,6 +41,7 @@
 		93DC2FCA2219318C003C520D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC92219318C003C520D /* UITableView+Extension.swift */; };
 		93DC2FCC221931D8003C520D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FCB221931D8003C520D /* AppConstants.swift */; };
 		93DC2FCD2219367B003C520D /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2F8A2219254F003C520D /* Differentiator.framework */; };
+		93DC2FD0221943E8003C520D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FCF221943E8003C520D /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		93DC2FC722193163003C520D /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		93DC2FC92219318C003C520D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		93DC2FCB221931D8003C520D /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		93DC2FCF221943E8003C520D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,13 +272,10 @@
 		93DC2FA522192C88003C520D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				93DC2FCE221943D5003C520D /* Extension */,
 				93DC2FBF22193097003C520D /* CacheManager.swift */,
 				93DC2FCB221931D8003C520D /* AppConstants.swift */,
-				93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */,
-				93DC2FC322193110003C520D /* UIAlertController+Extension.swift */,
-				93DC2FC52219313B003C520D /* Optional+Extension.swift */,
 				93DC2FC722193163003C520D /* Helper.swift */,
-				93DC2FC92219318C003C520D /* UITableView+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -288,6 +287,18 @@
 				93DC2FA722192CC8003C520D /* ContactCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		93DC2FCE221943D5003C520D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */,
+				93DC2FC322193110003C520D /* UIAlertController+Extension.swift */,
+				93DC2FC52219313B003C520D /* Optional+Extension.swift */,
+				93DC2FC92219318C003C520D /* UITableView+Extension.swift */,
+				93DC2FCF221943E8003C520D /* UIColor+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +474,7 @@
 				93DC2F9922192A56003C520D /* Application.swift in Sources */,
 				93DC2FB822192F94003C520D /* CellRepresentable.swift in Sources */,
 				93DC2FC2221930E8003C520D /* CustomSection+Extension.swift in Sources */,
+				93DC2FD0221943E8003C520D /* UIColor+Extension.swift in Sources */,
 				93DC2FB022192E4E003C520D /* NetworkLayer.swift in Sources */,
 				93DC2FB622192F4E003C520D /* Reusable.swift in Sources */,
 				93DC2FB222192E84003C520D /* ServiceLoader.swift in Sources */,
