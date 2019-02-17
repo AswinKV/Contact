@@ -82,6 +82,7 @@ class HomeViewController: UIViewController {
     private func setupTableView() {
         tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = 64
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -90,7 +91,6 @@ class HomeViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 16),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
             ])
-        tableView.rowHeight = 100
     }
     
     func registerCell() {

@@ -43,6 +43,7 @@ class ContactCell: UITableViewCell, ReusableView {
     private func setup() {
         self.clipsToBounds = true
         self.backgroundColor = .clear
+        self.selectionStyle = .none
         setupFullNameLabel()
         setupProfileImageView()
         setupFavouriteImageView()
