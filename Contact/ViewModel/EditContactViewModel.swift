@@ -15,8 +15,11 @@ protocol EditContactViewModelling {
     var cancelTapped: PublishSubject<Void> { get }
     var emailIdText: PublishSubject<String> { get }
     // Output
-    var fullNameText: Observable<String> { get }
-    var imageUrl: Observable<URL> { get }
+    var mobileText: Observable<String> { get }
+    var emailText: Observable<String> { get }
+    var firstNameText: Observable<String> { get }
+    var lastNameText: Observable<String> { get }
+
 }
 
 class EditContactViewModel: EditContactViewModelling {
@@ -25,9 +28,11 @@ class EditContactViewModel: EditContactViewModelling {
     var cancelTapped: PublishSubject<Void> = PublishSubject()
     var emailIdText: PublishSubject<String> = PublishSubject()
     // Output
-    var fullNameText: Observable<String> = Observable.empty()
-    var imageUrl: Observable<URL> = Observable.empty()
-    
+    var mobileText: Observable<String> = Observable.empty()
+    var emailText: Observable<String> = Observable.empty()
+    var firstNameText: Observable<String> = Observable.empty()
+    var lastNameText: Observable<String> = Observable.empty()
+
     let model: ContactDetail
     init(model: ContactDetail) {
         self.model = model
@@ -35,16 +40,20 @@ class EditContactViewModel: EditContactViewModelling {
     }
     
     private func createObservables() {
-        let firstName = model.firstName ?? ""
-        let lastName = model.lastName ?? ""
-        let fullName = "\(firstName) \(lastName)"
+        mobileText = Observable
+            .just(model.phoneNumber)
+            .ignoreNil()
         
-        fullNameText = Observable
-            .just(fullName)
+        emailText = Observable
+            .just(model.email)
+            .ignoreNil()
         
-        imageUrl = Observable
-            .just(model.profilePic)
-            .map {Helper.toURL(with: $0)}
+        firstNameText = Observable
+            .just(model.firstName)
+            .ignoreNil()
+        
+        lastNameText = Observable
+            .just(model.lastName)
             .ignoreNil()
     }
 }

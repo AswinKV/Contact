@@ -20,6 +20,8 @@ struct DisplayString {
         static let email = NSLocalizedString("email", comment: "email text in contact details screen.")
         static let favourite = NSLocalizedString("favourite", comment: "favourite text in contact details screen.")
         static let mobile = NSLocalizedString("mobile", comment: "mobile text in contact details screen.")
+        static let firstName = NSLocalizedString("firstName", comment: "first name text in edit contact screen.")
+        static let lastName = NSLocalizedString("lastName", comment: "last name text in edit contact screen.")
     }
     
     struct General {
