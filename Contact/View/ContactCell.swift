@@ -12,6 +12,7 @@ import Kingfisher
 class ContactCell: UITableViewCell, ReusableView {
     private var fullNameLabel: UILabel!
     private var profileImageView: UIImageView!
+    private var favouriteImageView: UIImageView!
     private var disposeBag: DisposeBag!
     
     private var viewModel: ContactCellViewModeling! {
@@ -44,6 +45,7 @@ class ContactCell: UITableViewCell, ReusableView {
         self.backgroundColor = .clear
         setupFullNameLabel()
         setupProfileImageView()
+        setupFavouriteImageView()
     }
     
     private func setupBinding() {
@@ -58,6 +60,10 @@ class ContactCell: UITableViewCell, ReusableView {
             self?.profileImageView.kf.setImage(with: url)
         }).disposed(by: bag)
         
+        viewModel.isFavourite.subscribe(onNext: { [weak self] (isFavourite) in
+            self?.favouriteImageView.isHidden = !isFavourite
+        }).disposed(by: bag)
+        
         self.disposeBag = bag
     }
     
@@ -66,7 +72,6 @@ class ContactCell: UITableViewCell, ReusableView {
         self.contentView.addSubview(fullNameLabel)
         
         NSLayoutConstraint.activate([
-            self.fullNameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0),
             self.fullNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 24),
             self.fullNameLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -24),
             self.fullNameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: 0),
@@ -95,4 +100,22 @@ class ContactCell: UITableViewCell, ReusableView {
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    private func setupFavouriteImageView() {
+        favouriteImageView = UIImageView()
+        favouriteImageView.image = UIImage(named: "favourite")
+        self.contentView.addSubview(favouriteImageView)
+        
+        NSLayoutConstraint.activate([
+            self.favouriteImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -32),
+            self.favouriteImageView.leadingAnchor.constraint(equalTo: self.fullNameLabel.trailingAnchor, constant: 16),
+            self.favouriteImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: 0),
+            self.favouriteImageView.widthAnchor.constraint(equalToConstant: 16),
+            self.favouriteImageView.heightAnchor.constraint(equalToConstant: 16),
+            ])
+        
+        favouriteImageView.translatesAutoresizingMaskIntoConstraints = false
+        favouriteImageView.isHidden = true
+    }
+
 }

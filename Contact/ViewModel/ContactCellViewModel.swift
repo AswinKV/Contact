@@ -14,6 +14,7 @@ protocol ContactCellViewModeling: CellRepresentable {
     var fullNameText: Observable<String> { get }
     var imageUrl: Observable<URL> { get }
     var identifier: String? { get }
+    var isFavourite: Observable<Bool> { get }
 }
 
 class ContactCellViewModel: ContactCellViewModeling {
@@ -23,7 +24,8 @@ class ContactCellViewModel: ContactCellViewModeling {
     lazy var identifier: String? = {
         return model.identifier?.description
     }()
-    
+    var isFavourite: Observable<Bool> = Observable.empty()
+
     let model: Contact
     init(model: Contact) {
         self.model = model
@@ -41,6 +43,10 @@ class ContactCellViewModel: ContactCellViewModeling {
         imageUrl = Observable
             .just(model.profilePic)
             .map {Helper.toURL(with: $0)}
+            .ignoreNil()
+        
+        isFavourite = Observable
+            .just(model.favorite)
             .ignoreNil()
     }
 }
