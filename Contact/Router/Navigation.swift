@@ -39,7 +39,7 @@ final class Navigation {
     private func showContactDetails(model: ContactDetail) {
         let viewModel = ContactViewModel(model: model)
         let viewController = ContactDetailsViewController(viewModel: viewModel)
-        let editButton = UIBarButtonItem(title: "Edit", style: UIBarButtonItem.Style.done, target: self, action: nil)
+        let editButton = UIBarButtonItem(title: DisplayString.Contact.edit, style: UIBarButtonItem.Style.done, target: self, action: nil)
         viewController.navigationItem.rightBarButtonItem = editButton
         editButton.rx.tap.bind(to: viewModel.editTapped).disposed(by: viewController.disposeBag)
         navigationController.pushViewController(viewController, animated: true)

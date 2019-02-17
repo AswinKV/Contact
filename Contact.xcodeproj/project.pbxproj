@@ -42,6 +42,8 @@
 		93DC2FCC221931D8003C520D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FCB221931D8003C520D /* AppConstants.swift */; };
 		93DC2FCD2219367B003C520D /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2F8A2219254F003C520D /* Differentiator.framework */; };
 		93DC2FD0221943E8003C520D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FCF221943E8003C520D /* UIColor+Extension.swift */; };
+		93DC2FD222194700003C520D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93DC2FD122194700003C520D /* Localizable.strings */; };
+		93DC2FD52219478B003C520D /* DisplayString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FD42219478B003C520D /* DisplayString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		93DC2FC92219318C003C520D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		93DC2FCB221931D8003C520D /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		93DC2FCF221943E8003C520D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		93DC2FD122194700003C520D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		93DC2FD42219478B003C520D /* DisplayString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,7 @@
 				93DC2F6022191211003C520D /* Info.plist */,
 				93DC2F542219120F003C520D /* AppDelegate.swift */,
 				93DC2F9822192A56003C520D /* Application.swift */,
+				93DC2FD122194700003C520D /* Localizable.strings */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				93DC2FBF22193097003C520D /* CacheManager.swift */,
 				93DC2FCB221931D8003C520D /* AppConstants.swift */,
 				93DC2FC722193163003C520D /* Helper.swift */,
+				93DC2FD42219478B003C520D /* DisplayString.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DC2F5F22191211003C520D /* LaunchScreen.storyboard in Resources */,
+				93DC2FD222194700003C520D /* Localizable.strings in Resources */,
 				93DC2F5C22191211003C520D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +493,7 @@
 				93DC2FAC22192D98003C520D /* ContactViewModel.swift in Sources */,
 				93DC2FCC221931D8003C520D /* AppConstants.swift in Sources */,
 				93DC2FBA22192FCE003C520D /* ContactDetail.swift in Sources */,
+				93DC2FD52219478B003C520D /* DisplayString.swift in Sources */,
 				93DC2FC822193163003C520D /* Helper.swift in Sources */,
 				93DC2F9C22192AA3003C520D /* Navigation.swift in Sources */,
 				93DC2FB422192EE2003C520D /* DataProvider.swift in Sources */,

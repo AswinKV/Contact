@@ -17,7 +17,7 @@ struct Helper {
     
     static func showAlert(withTitle title: String = "",
                           message: String,
-                          actionTitle: String = "Ok",
+                          actionTitle: String = DisplayString.General.ok,
                           actionHandler: ((UIAlertAction) -> Void)? = nil ) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okayAction = UIAlertAction(title: actionTitle, style: .default, handler: actionHandler)
