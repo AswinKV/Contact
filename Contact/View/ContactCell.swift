@@ -73,9 +73,9 @@ class ContactCell: UITableViewCell, ReusableView {
         self.contentView.addSubview(fullNameLabel)
         
         NSLayoutConstraint.activate([
-            self.fullNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 24),
-            self.fullNameLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -24),
-            self.fullNameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: 0),
+            fullNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
+            fullNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
+            fullNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
             ])
         
         fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -89,14 +89,14 @@ class ContactCell: UITableViewCell, ReusableView {
         profileImageView = UIImageView()
         profileImageView.layer.cornerRadius = 20
         profileImageView.layer.masksToBounds = true
-        self.contentView.addSubview(profileImageView)
+        contentView.addSubview(profileImageView)
         
         NSLayoutConstraint.activate([
-            self.profileImageView.trailingAnchor.constraint(equalTo: self.fullNameLabel.leadingAnchor, constant: -16),
-            self.profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
-            self.profileImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: 0),
-            self.profileImageView.widthAnchor.constraint(equalToConstant: 40),
-            self.profileImageView.heightAnchor.constraint(equalToConstant: 40),
+            profileImageView.trailingAnchor.constraint(equalTo: fullNameLabel.leadingAnchor, constant: -16),
+            profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            profileImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
+            profileImageView.widthAnchor.constraint(equalToConstant: 40),
+            profileImageView.heightAnchor.constraint(equalToConstant: 40),
             ])
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -105,18 +105,17 @@ class ContactCell: UITableViewCell, ReusableView {
     private func setupFavouriteImageView() {
         favouriteImageView = UIImageView()
         favouriteImageView.image = UIImage(named: "favourite")
-        self.contentView.addSubview(favouriteImageView)
+        contentView.addSubview(favouriteImageView)
         
         NSLayoutConstraint.activate([
-            self.favouriteImageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -32),
-            self.favouriteImageView.leadingAnchor.constraint(equalTo: self.fullNameLabel.trailingAnchor, constant: 16),
-            self.favouriteImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: 0),
-            self.favouriteImageView.widthAnchor.constraint(equalToConstant: 16),
-            self.favouriteImageView.heightAnchor.constraint(equalToConstant: 16),
+            favouriteImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
+            favouriteImageView.leadingAnchor.constraint(equalTo: fullNameLabel.trailingAnchor, constant: 16),
+            favouriteImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
+            favouriteImageView.widthAnchor.constraint(equalToConstant: 16),
+            favouriteImageView.heightAnchor.constraint(equalToConstant: 16),
             ])
         
         favouriteImageView.translatesAutoresizingMaskIntoConstraints = false
         favouriteImageView.isHidden = true
     }
-
 }

@@ -48,6 +48,8 @@
 		93DC2FD922195581003C520D /* EditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FD822195581003C520D /* EditContactViewModel.swift */; };
 		93DC2FDB22196E95003C520D /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FDA22196E95003C520D /* AddContactViewController.swift */; };
 		93DC2FDD22196EA5003C520D /* AddContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FDC22196EA5003C520D /* AddContactViewModel.swift */; };
+		93DC2FDF2219C301003C520D /* ContactActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FDE2219C301003C520D /* ContactActionView.swift */; };
+		93DC2FE12219DCCF003C520D /* ContactEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE02219DCCF003C520D /* ContactEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,8 @@
 		93DC2FD822195581003C520D /* EditContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditContactViewModel.swift; sourceTree = "<group>"; };
 		93DC2FDA22196E95003C520D /* AddContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 		93DC2FDC22196EA5003C520D /* AddContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewModel.swift; sourceTree = "<group>"; };
+		93DC2FDE2219C301003C520D /* ContactActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactActionView.swift; sourceTree = "<group>"; };
+		93DC2FE02219DCCF003C520D /* ContactEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +307,8 @@
 			children = (
 				93DC2FB522192F4E003C520D /* Reusable.swift */,
 				93DC2FA722192CC8003C520D /* ContactCell.swift */,
+				93DC2FDE2219C301003C520D /* ContactActionView.swift */,
+				93DC2FE02219DCCF003C520D /* ContactEditView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -511,7 +517,9 @@
 				93DC2FD52219478B003C520D /* DisplayString.swift in Sources */,
 				93DC2FD922195581003C520D /* EditContactViewModel.swift in Sources */,
 				93DC2FC822193163003C520D /* Helper.swift in Sources */,
+				93DC2FDF2219C301003C520D /* ContactActionView.swift in Sources */,
 				93DC2F9C22192AA3003C520D /* Navigation.swift in Sources */,
+				93DC2FE12219DCCF003C520D /* ContactEditView.swift in Sources */,
 				93DC2FB422192EE2003C520D /* DataProvider.swift in Sources */,
 				93DC2FCA2219318C003C520D /* UITableView+Extension.swift in Sources */,
 			);

@@ -15,6 +15,11 @@ struct DisplayString {
         static let done = NSLocalizedString("done", comment: "done button text in edit contact screen.")
         static let cancel = NSLocalizedString("cancel", comment: "cancel button text in edit contact screen.")
         static let add = NSLocalizedString("add", comment: "add plus icon in home screen.")
+        static let message = NSLocalizedString("message", comment: "message text in contact details screen.")
+        static let call = NSLocalizedString("call", comment: "call text in contact details screen.")
+        static let email = NSLocalizedString("email", comment: "email text in contact details screen.")
+        static let favourite = NSLocalizedString("favourite", comment: "favourite text in contact details screen.")
+        static let mobile = NSLocalizedString("mobile", comment: "mobile text in contact details screen.")
     }
     
     struct General {
