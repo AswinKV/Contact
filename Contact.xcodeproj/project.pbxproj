@@ -8,12 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		93DC2F552219120F003C520D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2F542219120F003C520D /* AppDelegate.swift */; };
-		93DC2F572219120F003C520D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2F562219120F003C520D /* ViewController.swift */; };
-		93DC2F5A2219120F003C520D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DC2F582219120F003C520D /* Main.storyboard */; };
 		93DC2F5C22191211003C520D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93DC2F5B22191211003C520D /* Assets.xcassets */; };
 		93DC2F5F22191211003C520D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93DC2F5D22191211003C520D /* LaunchScreen.storyboard */; };
 		93DC2F6A22191211003C520D /* ContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2F6922191211003C520D /* ContactTests.swift */; };
 		93DC2F7522191211003C520D /* ContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2F7422191211003C520D /* ContactUITests.swift */; };
+		93DC2F8F2219254F003C520D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2F862219254F003C520D /* RxDataSources.framework */; };
+		93DC2F902219254F003C520D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2F872219254F003C520D /* Alamofire.framework */; };
+		93DC2F922219254F003C520D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2F892219254F003C520D /* RxCocoa.framework */; };
+		93DC2F942219254F003C520D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2F8B2219254F003C520D /* RxSwift.framework */; };
+		93DC2F95221926BE003C520D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2F852219254F003C520D /* Kingfisher.framework */; };
+		93DC2F9922192A56003C520D /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2F9822192A56003C520D /* Application.swift */; };
+		93DC2F9C22192AA3003C520D /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2F9B22192AA3003C520D /* Navigation.swift */; };
+		93DC2F9F22192B38003C520D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2F9E22192B38003C520D /* HomeViewController.swift */; };
+		93DC2FA222192C0A003C520D /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FA122192C0A003C520D /* HomeScreenViewModel.swift */; };
+		93DC2FA822192CC8003C520D /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FA722192CC8003C520D /* ContactCell.swift */; };
+		93DC2FAA22192D36003C520D /* ContactCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FA922192D36003C520D /* ContactCellViewModel.swift */; };
+		93DC2FAC22192D98003C520D /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FAB22192D98003C520D /* ContactViewModel.swift */; };
+		93DC2FAE22192DE8003C520D /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FAD22192DE8003C520D /* ContactDetailsViewController.swift */; };
+		93DC2FB022192E4E003C520D /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FAF22192E4E003C520D /* NetworkLayer.swift */; };
+		93DC2FB222192E84003C520D /* ServiceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FB122192E84003C520D /* ServiceLoader.swift */; };
+		93DC2FB422192EE2003C520D /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FB322192EE2003C520D /* DataProvider.swift */; };
+		93DC2FB622192F4E003C520D /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FB522192F4E003C520D /* Reusable.swift */; };
+		93DC2FB822192F94003C520D /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FB722192F94003C520D /* CellRepresentable.swift */; };
+		93DC2FBA22192FCE003C520D /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FB922192FCE003C520D /* ContactDetail.swift */; };
+		93DC2FBC22193008003C520D /* ContactsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBB22193008003C520D /* ContactsResponse.swift */; };
+		93DC2FBE22193044003C520D /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBD22193044003C520D /* UserRepository.swift */; };
+		93DC2FC022193097003C520D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBF22193097003C520D /* CacheManager.swift */; };
+		93DC2FC2221930E8003C520D /* CustomSection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */; };
+		93DC2FC422193110003C520D /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC322193110003C520D /* UIAlertController+Extension.swift */; };
+		93DC2FC62219313B003C520D /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC52219313B003C520D /* Optional+Extension.swift */; };
+		93DC2FC822193163003C520D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC722193163003C520D /* Helper.swift */; };
+		93DC2FCA2219318C003C520D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC92219318C003C520D /* UITableView+Extension.swift */; };
+		93DC2FCC221931D8003C520D /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FCB221931D8003C520D /* AppConstants.swift */; };
+		93DC2FCD2219367B003C520D /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2F8A2219254F003C520D /* Differentiator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +63,6 @@
 /* Begin PBXFileReference section */
 		93DC2F512219120F003C520D /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DC2F542219120F003C520D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		93DC2F562219120F003C520D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		93DC2F592219120F003C520D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93DC2F5B22191211003C520D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93DC2F5E22191211003C520D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93DC2F6022191211003C520D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +72,38 @@
 		93DC2F7022191211003C520D /* ContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93DC2F7422191211003C520D /* ContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUITests.swift; sourceTree = "<group>"; };
 		93DC2F7622191211003C520D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93DC2F832219254F003C520D /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		93DC2F842219254F003C520D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		93DC2F852219254F003C520D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		93DC2F862219254F003C520D /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
+		93DC2F872219254F003C520D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		93DC2F882219254F003C520D /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		93DC2F892219254F003C520D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		93DC2F8A2219254F003C520D /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
+		93DC2F8B2219254F003C520D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		93DC2F9822192A56003C520D /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		93DC2F9B22192AA3003C520D /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		93DC2F9E22192B38003C520D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		93DC2FA122192C0A003C520D /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		93DC2FA722192CC8003C520D /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		93DC2FA922192D36003C520D /* ContactCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCellViewModel.swift; sourceTree = "<group>"; };
+		93DC2FAB22192D98003C520D /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		93DC2FAD22192DE8003C520D /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
+		93DC2FAF22192E4E003C520D /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		93DC2FB122192E84003C520D /* ServiceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLoader.swift; sourceTree = "<group>"; };
+		93DC2FB322192EE2003C520D /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		93DC2FB522192F4E003C520D /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		93DC2FB722192F94003C520D /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
+		93DC2FB922192FCE003C520D /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
+		93DC2FBB22193008003C520D /* ContactsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsResponse.swift; sourceTree = "<group>"; };
+		93DC2FBD22193044003C520D /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		93DC2FBF22193097003C520D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomSection+Extension.swift"; sourceTree = "<group>"; };
+		93DC2FC322193110003C520D /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		93DC2FC52219313B003C520D /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		93DC2FC722193163003C520D /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		93DC2FC92219318C003C520D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		93DC2FCB221931D8003C520D /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +111,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DC2F8F2219254F003C520D /* RxDataSources.framework in Frameworks */,
+				93DC2F902219254F003C520D /* Alamofire.framework in Frameworks */,
+				93DC2FCD2219367B003C520D /* Differentiator.framework in Frameworks */,
+				93DC2F922219254F003C520D /* RxCocoa.framework in Frameworks */,
+				93DC2F95221926BE003C520D /* Kingfisher.framework in Frameworks */,
+				93DC2F942219254F003C520D /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +144,7 @@
 				93DC2F6822191211003C520D /* ContactTests */,
 				93DC2F7322191211003C520D /* ContactUITests */,
 				93DC2F522219120F003C520D /* Products */,
+				93DC2F822219254F003C520D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +161,14 @@
 		93DC2F532219120F003C520D /* Contact */ = {
 			isa = PBXGroup;
 			children = (
-				93DC2F542219120F003C520D /* AppDelegate.swift */,
-				93DC2F562219120F003C520D /* ViewController.swift */,
-				93DC2F582219120F003C520D /* Main.storyboard */,
-				93DC2F5B22191211003C520D /* Assets.xcassets */,
-				93DC2F5D22191211003C520D /* LaunchScreen.storyboard */,
-				93DC2F6022191211003C520D /* Info.plist */,
+				93DC2FA622192C9F003C520D /* View */,
+				93DC2FA522192C88003C520D /* Helper */,
+				93DC2FA422192C7D003C520D /* Service */,
+				93DC2FA322192C67003C520D /* Model */,
+				93DC2FA022192BB3003C520D /* ViewModel */,
+				93DC2F9D22192B13003C520D /* ViewController */,
+				93DC2F9A22192A90003C520D /* Router */,
+				93DC2F9722192A28003C520D /* Application */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -125,6 +191,105 @@
 			path = ContactUITests;
 			sourceTree = "<group>";
 		};
+		93DC2F822219254F003C520D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2F872219254F003C520D /* Alamofire.framework */,
+				93DC2F8A2219254F003C520D /* Differentiator.framework */,
+				93DC2F852219254F003C520D /* Kingfisher.framework */,
+				93DC2F882219254F003C520D /* RxAtomic.framework */,
+				93DC2F842219254F003C520D /* RxBlocking.framework */,
+				93DC2F892219254F003C520D /* RxCocoa.framework */,
+				93DC2F862219254F003C520D /* RxDataSources.framework */,
+				93DC2F8B2219254F003C520D /* RxSwift.framework */,
+				93DC2F832219254F003C520D /* RxTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93DC2F9722192A28003C520D /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2F5B22191211003C520D /* Assets.xcassets */,
+				93DC2F5D22191211003C520D /* LaunchScreen.storyboard */,
+				93DC2F6022191211003C520D /* Info.plist */,
+				93DC2F542219120F003C520D /* AppDelegate.swift */,
+				93DC2F9822192A56003C520D /* Application.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		93DC2F9A22192A90003C520D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2F9B22192AA3003C520D /* Navigation.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		93DC2F9D22192B13003C520D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2F9E22192B38003C520D /* HomeViewController.swift */,
+				93DC2FAD22192DE8003C520D /* ContactDetailsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		93DC2FA022192BB3003C520D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2FA122192C0A003C520D /* HomeScreenViewModel.swift */,
+				93DC2FA922192D36003C520D /* ContactCellViewModel.swift */,
+				93DC2FAB22192D98003C520D /* ContactViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		93DC2FA322192C67003C520D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2FB722192F94003C520D /* CellRepresentable.swift */,
+				93DC2FB922192FCE003C520D /* ContactDetail.swift */,
+				93DC2FBB22193008003C520D /* ContactsResponse.swift */,
+				93DC2FBD22193044003C520D /* UserRepository.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		93DC2FA422192C7D003C520D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2FAF22192E4E003C520D /* NetworkLayer.swift */,
+				93DC2FB122192E84003C520D /* ServiceLoader.swift */,
+				93DC2FB322192EE2003C520D /* DataProvider.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		93DC2FA522192C88003C520D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2FBF22193097003C520D /* CacheManager.swift */,
+				93DC2FCB221931D8003C520D /* AppConstants.swift */,
+				93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */,
+				93DC2FC322193110003C520D /* UIAlertController+Extension.swift */,
+				93DC2FC52219313B003C520D /* Optional+Extension.swift */,
+				93DC2FC722193163003C520D /* Helper.swift */,
+				93DC2FC92219318C003C520D /* UITableView+Extension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		93DC2FA622192C9F003C520D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2FB522192F4E003C520D /* Reusable.swift */,
+				93DC2FA722192CC8003C520D /* ContactCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +300,7 @@
 				93DC2F4D2219120F003C520D /* Sources */,
 				93DC2F4E2219120F003C520D /* Frameworks */,
 				93DC2F4F2219120F003C520D /* Resources */,
+				93DC2F962219271A003C520D /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -231,7 +397,6 @@
 			files = (
 				93DC2F5F22191211003C520D /* LaunchScreen.storyboard in Resources */,
 				93DC2F5C22191211003C520D /* Assets.xcassets in Resources */,
-				93DC2F5A2219120F003C520D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +416,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		93DC2F962219271A003C520D /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Alamofire.framework",
+				"$(DERIVED_FILE_DIR)/Kingfisher.framework",
+				"$(DERIVED_FILE_DIR)/RxCocoa.framework",
+				"$(DERIVED_FILE_DIR)/RxSwift.framework",
+				"$(DERIVED_FILE_DIR)/RxDataSources.framework",
+				"$(DERIVED_FILE_DIR)/Differentiator.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		93DC2F4D2219120F003C520D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93DC2F572219120F003C520D /* ViewController.swift in Sources */,
+				93DC2FAE22192DE8003C520D /* ContactDetailsViewController.swift in Sources */,
+				93DC2F9F22192B38003C520D /* HomeViewController.swift in Sources */,
+				93DC2FBE22193044003C520D /* UserRepository.swift in Sources */,
+				93DC2FBC22193008003C520D /* ContactsResponse.swift in Sources */,
+				93DC2FA222192C0A003C520D /* HomeScreenViewModel.swift in Sources */,
+				93DC2FC62219313B003C520D /* Optional+Extension.swift in Sources */,
+				93DC2F9922192A56003C520D /* Application.swift in Sources */,
+				93DC2FB822192F94003C520D /* CellRepresentable.swift in Sources */,
+				93DC2FC2221930E8003C520D /* CustomSection+Extension.swift in Sources */,
+				93DC2FB022192E4E003C520D /* NetworkLayer.swift in Sources */,
+				93DC2FB622192F4E003C520D /* Reusable.swift in Sources */,
+				93DC2FB222192E84003C520D /* ServiceLoader.swift in Sources */,
 				93DC2F552219120F003C520D /* AppDelegate.swift in Sources */,
+				93DC2FAA22192D36003C520D /* ContactCellViewModel.swift in Sources */,
+				93DC2FC022193097003C520D /* CacheManager.swift in Sources */,
+				93DC2FC422193110003C520D /* UIAlertController+Extension.swift in Sources */,
+				93DC2FA822192CC8003C520D /* ContactCell.swift in Sources */,
+				93DC2FAC22192D98003C520D /* ContactViewModel.swift in Sources */,
+				93DC2FCC221931D8003C520D /* AppConstants.swift in Sources */,
+				93DC2FBA22192FCE003C520D /* ContactDetail.swift in Sources */,
+				93DC2FC822193163003C520D /* Helper.swift in Sources */,
+				93DC2F9C22192AA3003C520D /* Navigation.swift in Sources */,
+				93DC2FB422192EE2003C520D /* DataProvider.swift in Sources */,
+				93DC2FCA2219318C003C520D /* UITableView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +513,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		93DC2F582219120F003C520D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93DC2F592219120F003C520D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		93DC2F5D22191211003C520D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -433,7 +645,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Contact/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Contact/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,7 +667,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Contact/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Contact/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
