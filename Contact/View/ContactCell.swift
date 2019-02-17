@@ -67,25 +67,30 @@ class ContactCell: UITableViewCell, ReusableView {
         
         NSLayoutConstraint.activate([
             self.fullNameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: 0),
-            self.fullNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8)
+            self.fullNameLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 24),
+            self.fullNameLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -24),
+            self.fullNameLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: 0),
             ])
         
         fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
         fullNameLabel.numberOfLines = 0
         fullNameLabel.textAlignment = .left
-        fullNameLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        fullNameLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        fullNameLabel.textColor = UIColor.tundora()
     }
     
     private func setupProfileImageView() {
         profileImageView = UIImageView()
+        profileImageView.layer.cornerRadius = 20
+        profileImageView.layer.masksToBounds = true
         self.contentView.addSubview(profileImageView)
         
         NSLayoutConstraint.activate([
             self.profileImageView.trailingAnchor.constraint(equalTo: self.fullNameLabel.leadingAnchor, constant: -16),
-            self.profileImageView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 8),
-            self.profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 0),
-            self.profileImageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -8),
-            self.profileImageView.widthAnchor.constraint(equalToConstant: 100)
+            self.profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 16),
+            self.profileImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor, constant: 0),
+            self.profileImageView.widthAnchor.constraint(equalToConstant: 40),
+            self.profileImageView.heightAnchor.constraint(equalToConstant: 40),
             ])
         
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
