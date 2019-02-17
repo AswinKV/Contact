@@ -10,3 +10,5 @@ edit = "Edit";
 ok = "Ok";
 done = "Done";
 cancel = "Cancel";
+contact = "Contact";
+add = "+";

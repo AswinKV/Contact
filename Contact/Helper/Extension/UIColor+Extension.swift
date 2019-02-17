@@ -35,6 +35,11 @@ extension UIColor {
     }
     
     static func tundora() -> UIColor {
-        return self.colorFromHexString("4a4a4a")
+        return self.colorFromHexString("4A4A4A")
     }
+    
+    static func turquoise() -> UIColor {
+        return self.colorFromHexString("50E3C2")
+    }
+
 }

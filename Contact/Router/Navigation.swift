@@ -17,7 +17,8 @@ final class Navigation {
         self.application = application
         self.navigationController = UINavigationController()
         let appear = UINavigationBar.appearance()
-        appear.barTintColor = .blue
+        appear.barTintColor = .white
+        appear.tintColor = UIColor.turquoise()
         appear.isTranslucent = false
         navigationController = UINavigationController(rootViewController: self.showHome())
         window.rootViewController = navigationController
@@ -28,7 +29,10 @@ final class Navigation {
         let repository = UserRepository()
         let viewModel = HomeScreenViewModel(repository: repository)
         let viewController = HomeViewController(viewModel: viewModel)
-        
+        viewController.navigationItem.title = DisplayString.Title.contact
+        let addButton = UIBarButtonItem(title: DisplayString.Contact.add, style: UIBarButtonItem.Style.done, target: self, action: nil)
+        viewController.navigationItem.rightBarButtonItem = addButton
+
         viewModel.contactDetails.subscribe(onNext: { [unowned self] (contactDetail) in
             self.showContactDetails(model: contactDetail)
         }).disposed(by: viewController.disposeBag)
