@@ -17,6 +17,7 @@ protocol EditContactViewModelling {
     var mobileString: PublishSubject<String?> { get }
     var firstNameString: PublishSubject<String?> { get }
     var lastNameString: PublishSubject<String?> { get }
+    var uploadTapped: PublishSubject<Void> { get }
     // Output
     var mobileText: Observable<String> { get }
     var emailText: Observable<String> { get }
@@ -33,6 +34,7 @@ class EditContactViewModel: EditContactViewModelling {
     var mobileString: PublishSubject<String?> = PublishSubject()
     var firstNameString: PublishSubject<String?> = PublishSubject()
     var lastNameString: PublishSubject<String?> = PublishSubject()
+    var uploadTapped: PublishSubject<Void> = PublishSubject()
     // Output
     var mobileText: Observable<String> = Observable.empty()
     var emailText: Observable<String> = Observable.empty()
@@ -84,5 +86,4 @@ class EditContactViewModel: EditContactViewModelling {
         guard let identifier = model.id else { fatalError() }
         return repository.updateContact(with: identifier.description, and: contact)
     }
-
 }

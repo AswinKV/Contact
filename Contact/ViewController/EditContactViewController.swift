@@ -53,11 +53,17 @@ class EditContactViewController: UIViewController {
         viewModel.lastNameText.subscribe(onNext: { [unowned self] name in
             self.setupLastNameEditView(name: name)
         }).disposed(by: disposeBag)
+        
+        viewModel.uploadTapped.subscribe(onNext: { [unowned self] () in
+            self.showUploadAlert()
+        }).disposed(by: disposeBag)
+
 
         mobileEditView.text.bind(to: viewModel.mobileString).disposed(by: mobileEditView.disposeBag)
         emailEditView.text.bind(to: viewModel.emailString).disposed(by: mobileEditView.disposeBag)
         firstNameEditView.text.bind(to: viewModel.firstNameString).disposed(by: mobileEditView.disposeBag)
         lastNameEditView.text.bind(to: viewModel.lastNameString).disposed(by: mobileEditView.disposeBag)
+        uploadButton.rx.tap.bind(to: viewModel.uploadTapped).disposed(by: disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -118,6 +124,7 @@ class EditContactViewController: UIViewController {
         profileImageView.layer.borderWidth = 3
         profileImageView.image = UIImage(named: "user")
         profileImageView.contentMode = .center
+        setupUploadButton()
     }
 
     private var mainStackView: UIStackView!
@@ -163,4 +170,51 @@ class EditContactViewController: UIViewController {
         lastNameEditView.prepare(with: DisplayString.Contact.lastName, and: name, isEditable: true)
         mainStackView.addArrangedSubview(lastNameEditView)
     }
+
+    var uploadButton: UIButton!
+    private func setupUploadButton() {
+        uploadButton = UIButton()
+        uploadButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(uploadButton)
+        
+        NSLayoutConstraint.activate([
+            uploadButton.heightAnchor.constraint(equalToConstant: 60),
+            uploadButton.widthAnchor.constraint(equalToConstant: 60),
+            uploadButton.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 0),
+            uploadButton.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 0)
+            ])
+        
+        uploadButton.backgroundColor = .white
+        uploadButton.tintColor = UIColor.turquoise()
+        uploadButton.setImage(UIImage(named: "camera"), for: UIControl.State.normal)
+        uploadButton.layer.cornerRadius = 30
+        uploadButton.layer.masksToBounds = true
+        uploadButton.contentMode = .scaleAspectFit
+    }
+
+    private func showUploadAlert() {
+        
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+            self.getImage(fromSourceType: .camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
+            self.getImage(fromSourceType: .photoLibrary)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func getImage(fromSourceType sourceType: UIImagePickerController.SourceType) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.sourceType = sourceType
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension EditContactViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 }
