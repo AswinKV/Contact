@@ -21,6 +21,7 @@ protocol ContactViewModelling {
     var editContactViewModel: Observable<EditContactViewModelling> { get }
     var mobileText: Observable<String> { get }
     var emailText: Observable<String> { get }
+    var callWith: Observable<String> { get }
 }
 
 class ContactViewModel: ContactViewModelling {
@@ -34,10 +35,13 @@ class ContactViewModel: ContactViewModelling {
     var editContactViewModel: Observable<EditContactViewModelling> = Observable.empty()
     var mobileText: Observable<String> = Observable.empty()
     var emailText: Observable<String> = Observable.empty()
+    var callWith: Observable<String> = Observable.empty()
 
     let model: ContactDetail
-    init(model: ContactDetail) {
+    let repository: ContactFetching
+    init(model: ContactDetail, repository: ContactFetching) {
         self.model = model
+        self.repository = repository
         createObservables()
     }
     
@@ -68,7 +72,12 @@ class ContactViewModel: ContactViewModelling {
         
         editContactViewModel = editTapped
             .map {[unowned self] () -> EditContactViewModelling in
-                EditContactViewModel(model: self.model)
+                EditContactViewModel(model: self.model, repository: self.repository)
             }
+        
+        callWith = callTapped.map({ [unowned self]() -> String? in
+                self.model.phoneNumber
+            })
+            .ignoreNil()
     }
 }

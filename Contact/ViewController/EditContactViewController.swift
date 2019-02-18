@@ -54,9 +54,15 @@ class EditContactViewController: UIViewController {
             self.setupLastNameEditView(name: name)
         }).disposed(by: disposeBag)
 
+        mobileEditView.text.bind(to: viewModel.mobileString).disposed(by: mobileEditView.disposeBag)
+        emailEditView.text.bind(to: viewModel.emailString).disposed(by: mobileEditView.disposeBag)
+        firstNameEditView.text.bind(to: viewModel.firstNameString).disposed(by: mobileEditView.disposeBag)
+        lastNameEditView.text.bind(to: viewModel.lastNameString).disposed(by: mobileEditView.disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
+        // Fix me :- duplicate gradient layer addition.
+        
         super.viewDidLayoutSubviews()
         let gradientLayer = getGradientLayer()
         gradientLayer.frame = gradientView.bounds

@@ -50,8 +50,8 @@ class ContactDetailsViewController: UIViewController {
             self.profileImageView.kf.setImage(with: url)
         }).disposed(by: disposeBag)
         callActionView.tapped.bind(to: viewModel.callTapped).disposed(by: callActionView.disposeBag)
-        viewModel.callTapped.subscribe(onNext: { [unowned self] () in
-            self.makeCall()
+        viewModel.callWith.subscribe(onNext: { [unowned self] (mobile) in
+            self.makeCall(mobile: mobile)
         }).disposed(by: disposeBag)
         
         viewModel.mobileText.subscribe(onNext: { [unowned self] mobile in
@@ -220,7 +220,7 @@ class ContactDetailsViewController: UIViewController {
     }
     
 //    Mark:- setup contact actions.
-    private func makeCall() {
-        
+    private func makeCall(mobile: String) {
+        Helper.makeCall(toNumber: mobile)
     }
 }

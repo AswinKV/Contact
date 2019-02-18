@@ -22,6 +22,6 @@ class AddContactViewModel: AddContactViewModelling {
     var cancelTapped: PublishSubject<Void> = PublishSubject()
     var emailIdText: PublishSubject<String> = PublishSubject()
     
-    init() {
+    init(repository: ContactFetching) {
     }
 }

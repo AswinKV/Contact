@@ -26,7 +26,7 @@ final class Navigation {
     }
     
     private func showHome() -> UIViewController {
-        let repository = UserRepository()
+        let repository = ContactRepository()
         let viewModel = HomeScreenViewModel(repository: repository)
         let viewController = HomeViewController(viewModel: viewModel)
         viewController.navigationItem.title = DisplayString.Title.contact
@@ -35,7 +35,7 @@ final class Navigation {
         viewController.navigationItem.rightBarButtonItem = addButton
         
         viewModel.contactDetails.subscribe(onNext: { [unowned self] (contactDetail) in
-            self.showContactDetails(model: contactDetail)
+            self.showContactDetails(model: contactDetail, repository: repository)
         }).disposed(by: viewController.disposeBag)
         
         viewModel.addContactViewModel.subscribe(onNext: { [unowned self] (viewModel) in
@@ -45,8 +45,8 @@ final class Navigation {
         return viewController
     }
     
-    private func showContactDetails(model: ContactDetail) {
-        let viewModel = ContactViewModel(model: model)
+    private func showContactDetails(model: ContactDetail, repository: ContactFetching) {
+        let viewModel = ContactViewModel(model: model, repository: repository)
         let viewController = ContactDetailsViewController(viewModel: viewModel)
         let editButton = UIBarButtonItem(title: DisplayString.Contact.edit, style: UIBarButtonItem.Style.done, target: self, action: nil)
         viewController.navigationItem.rightBarButtonItem = editButton
@@ -73,6 +73,11 @@ final class Navigation {
         viewModel.cancelTapped.subscribe(onNext: {
             viewController.dismiss(animated: true, completion: nil)
         }).disposed(by: viewController.disposeBag)
+        
+        viewModel.contactUpdated.subscribe(onNext: { updated in
+            viewController.dismiss(animated: true, completion: nil)
+        }).disposed(by: viewController.disposeBag)
+
     }
     
     private func showAddContactDetails(viewModel: AddContactViewModelling) {
@@ -90,6 +95,4 @@ final class Navigation {
             viewController.dismiss(animated: true, completion: nil)
         }).disposed(by: viewController.disposeBag)
     }
-
-
 }

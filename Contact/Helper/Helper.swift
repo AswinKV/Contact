@@ -17,7 +17,7 @@ struct Helper {
     
     static func showAlert(withTitle title: String = "",
                           message: String,
-                          actionTitle: String = DisplayString.General.ok,
+                          actionTitle: String = "Ok",
                           actionHandler: ((UIAlertAction) -> Void)? = nil ) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okayAction = UIAlertAction(title: actionTitle, style: .default, handler: actionHandler)
@@ -41,4 +41,12 @@ struct Helper {
             return URL(string: AppConstants.baseURL + urlString)
         }
     }
+    
+    static func makeCall(toNumber: String) {
+        let number = toNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+        if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
 }

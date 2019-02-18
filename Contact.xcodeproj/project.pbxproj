@@ -32,7 +32,7 @@
 		93DC2FB822192F94003C520D /* CellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FB722192F94003C520D /* CellRepresentable.swift */; };
 		93DC2FBA22192FCE003C520D /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FB922192FCE003C520D /* ContactDetail.swift */; };
 		93DC2FBC22193008003C520D /* ContactsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBB22193008003C520D /* ContactsResponse.swift */; };
-		93DC2FBE22193044003C520D /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBD22193044003C520D /* UserRepository.swift */; };
+		93DC2FBE22193044003C520D /* ContactRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBD22193044003C520D /* ContactRepository.swift */; };
 		93DC2FC022193097003C520D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBF22193097003C520D /* CacheManager.swift */; };
 		93DC2FC2221930E8003C520D /* CustomSection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */; };
 		93DC2FC422193110003C520D /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC322193110003C520D /* UIAlertController+Extension.swift */; };
@@ -50,6 +50,7 @@
 		93DC2FDD22196EA5003C520D /* AddContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FDC22196EA5003C520D /* AddContactViewModel.swift */; };
 		93DC2FDF2219C301003C520D /* ContactActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FDE2219C301003C520D /* ContactActionView.swift */; };
 		93DC2FE12219DCCF003C520D /* ContactEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE02219DCCF003C520D /* ContactEditView.swift */; };
+		93DC2FE3221A5822003C520D /* ContactRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE2221A5822003C520D /* ContactRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +106,7 @@
 		93DC2FB722192F94003C520D /* CellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRepresentable.swift; sourceTree = "<group>"; };
 		93DC2FB922192FCE003C520D /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 		93DC2FBB22193008003C520D /* ContactsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsResponse.swift; sourceTree = "<group>"; };
-		93DC2FBD22193044003C520D /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		93DC2FBD22193044003C520D /* ContactRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepository.swift; sourceTree = "<group>"; };
 		93DC2FBF22193097003C520D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomSection+Extension.swift"; sourceTree = "<group>"; };
 		93DC2FC322193110003C520D /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 		93DC2FDC22196EA5003C520D /* AddContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactViewModel.swift; sourceTree = "<group>"; };
 		93DC2FDE2219C301003C520D /* ContactActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactActionView.swift; sourceTree = "<group>"; };
 		93DC2FE02219DCCF003C520D /* ContactEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactEditView.swift; sourceTree = "<group>"; };
+		93DC2FE2221A5822003C520D /* ContactRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,8 +276,9 @@
 			children = (
 				93DC2FB722192F94003C520D /* CellRepresentable.swift */,
 				93DC2FB922192FCE003C520D /* ContactDetail.swift */,
+				93DC2FE2221A5822003C520D /* ContactRequest.swift */,
 				93DC2FBB22193008003C520D /* ContactsResponse.swift */,
-				93DC2FBD22193044003C520D /* UserRepository.swift */,
+				93DC2FBD22193044003C520D /* ContactRepository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -492,7 +495,7 @@
 			files = (
 				93DC2FAE22192DE8003C520D /* ContactDetailsViewController.swift in Sources */,
 				93DC2F9F22192B38003C520D /* HomeViewController.swift in Sources */,
-				93DC2FBE22193044003C520D /* UserRepository.swift in Sources */,
+				93DC2FBE22193044003C520D /* ContactRepository.swift in Sources */,
 				93DC2FBC22193008003C520D /* ContactsResponse.swift in Sources */,
 				93DC2FA222192C0A003C520D /* HomeScreenViewModel.swift in Sources */,
 				93DC2FDD22196EA5003C520D /* AddContactViewModel.swift in Sources */,
@@ -508,6 +511,7 @@
 				93DC2F552219120F003C520D /* AppDelegate.swift in Sources */,
 				93DC2FAA22192D36003C520D /* ContactCellViewModel.swift in Sources */,
 				93DC2FC022193097003C520D /* CacheManager.swift in Sources */,
+				93DC2FE3221A5822003C520D /* ContactRequest.swift in Sources */,
 				93DC2FC422193110003C520D /* UIAlertController+Extension.swift in Sources */,
 				93DC2FDB22196E95003C520D /* AddContactViewController.swift in Sources */,
 				93DC2FA822192CC8003C520D /* ContactCell.swift in Sources */,

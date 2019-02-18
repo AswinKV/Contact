@@ -13,6 +13,7 @@ class ContactEditView: UIView {
     private var textField: UITextField!
     private var label: UILabel!
     let disposeBag = DisposeBag()
+    let text = PublishSubject<String?>()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +35,7 @@ class ContactEditView: UIView {
         setupTextfield()
         setupLabel()
         setupThinLine()
+        textField.rx.text.bind(to: text).disposed(by: disposeBag)
     }
 
     override func layoutSubviews() {

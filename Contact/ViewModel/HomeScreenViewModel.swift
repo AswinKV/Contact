@@ -30,8 +30,8 @@ class HomeScreenViewModel: HomeScreenViewModelling {
     var contactDetails: Observable<ContactDetail> = Observable.empty()
     var addContactViewModel: Observable<AddContactViewModelling> = Observable.empty()
     
-    private var repository: UserFetching
-    init(repository: UserFetching) {
+    private var repository: ContactFetching
+    init(repository: ContactFetching) {
         self.repository =  repository
         createObservables()
     }
@@ -51,8 +51,8 @@ class HomeScreenViewModel: HomeScreenViewModelling {
             })
         
         addContactViewModel = addButtonTapped
-            .map {() -> AddContactViewModelling in
-                AddContactViewModel()
+            .map {[unowned self]() -> AddContactViewModelling in
+                AddContactViewModel(repository: self.repository)
             }
     }
     
@@ -69,7 +69,7 @@ class HomeScreenViewModel: HomeScreenViewModelling {
         for item in model {
             viewModels.append(ContactCellViewModel(model: item))
         }
-        return CustomSection(header: "Users", items: viewModels)
+        return CustomSection(header: "Contacts", items: viewModels)
     }
     
     func getTableCells(model: [Contact]) -> [CustomSection] {
