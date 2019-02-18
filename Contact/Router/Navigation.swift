@@ -21,6 +21,7 @@ final class Navigation {
         appear.tintColor = UIColor.turquoise()
         appear.isTranslucent = false
         navigationController = UINavigationController(rootViewController: self.showHome())
+        setupActivityIndicator()
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
@@ -82,7 +83,7 @@ final class Navigation {
     
     private func showAddContactDetails(viewModel: AddContactViewModelling) {
         let viewController = AddContactViewController(viewModel: viewModel)
-        let doneButton = UIBarButtonItem(title: DisplayString.Contact.done, style: UIBarButtonItem.Style.done, target: self, action: nil)
+        let doneButton = UIBarButtonItem(title: DisplayString.Contact.save, style: UIBarButtonItem.Style.done, target: self, action: nil)
         let cancelButton = UIBarButtonItem(title: DisplayString.Contact.cancel, style: UIBarButtonItem.Style.plain, target: self, action: nil)
         viewController.navigationItem.rightBarButtonItem = doneButton
         viewController.navigationItem.leftBarButtonItem = cancelButton
@@ -94,5 +95,20 @@ final class Navigation {
         viewModel.cancelTapped.subscribe(onNext: {
             viewController.dismiss(animated: true, completion: nil)
         }).disposed(by: viewController.disposeBag)
+        
+        viewModel.contactUpdated.subscribe(onNext: { updated in
+            viewController.dismiss(animated: true, completion: nil)
+        }).disposed(by: viewController.disposeBag)
     }
+    
+    func setupActivityIndicator() {
+        activityIndicatorView = RUIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
+        activityIndicatorCoverView.frame = UIScreen.main.bounds
+        activityIndicatorCoverView.backgroundColor = .clear
+        activityIndicatorView.color = .turquoise()
+        activityIndicatorView.center = CGPoint(x: (UIScreen.main.bounds.width/2), y: (UIScreen.main.bounds.height/2))
+        activityIndicatorView.stopAnimating()
+        activityIndicatorView.hidesWhenStopped = true
+    }
+
 }

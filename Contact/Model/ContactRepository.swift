@@ -26,9 +26,13 @@ class ContactRepository: ContactFetching {
         let parameter = Parameters(url: identifier,
                                    json: dict)
         return updateContactApi(with: parameter)
-        
     }
 
+    func createContact(with contact: ContactRequest) -> Observable<Contact> {
+        guard let dict = try? contact.asDictionary() else { fatalError() }
+        return createContactApi(with: dict)
+    }
+    
     private func getContactsFromAPI() -> Observable<[Contact]> {
         let provider = NetworkProvider<[Contact]>(apiType: Api.getContacts)
         let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
@@ -46,21 +50,17 @@ class ContactRepository: ContactFetching {
         let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
         return serviceLoader.item
     }
+    
+    func createContactApi(with parameters: [String : Any]) -> Observable<Contact> {
+        let provider = NetworkProvider<Contact>(apiType: Api.postContacts(parameters))
+        let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
+        return serviceLoader.item
+    }
 }
 
 protocol ContactFetching {
     func getContacts() -> Observable<[Contact]>
     func getContactDetails(for identifier: String) -> Observable<ContactDetail>
     func updateContact(with identifier: String, and contact: ContactRequest) -> Observable<Contact>
-}
-
-
-extension Encodable {
-    func asDictionary() throws -> [String: Any] {
-        let data = try JSONEncoder().encode(self)
-        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
-            throw NSError()
-        }
-        return dictionary
-    }
+    func createContact(with contact: ContactRequest) -> Observable<Contact>
 }

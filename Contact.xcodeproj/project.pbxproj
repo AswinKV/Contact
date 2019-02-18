@@ -51,6 +51,7 @@
 		93DC2FDF2219C301003C520D /* ContactActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FDE2219C301003C520D /* ContactActionView.swift */; };
 		93DC2FE12219DCCF003C520D /* ContactEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE02219DCCF003C520D /* ContactEditView.swift */; };
 		93DC2FE3221A5822003C520D /* ContactRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE2221A5822003C520D /* ContactRequest.swift */; };
+		93DC2FE7221AE163003C520D /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE6221AE163003C520D /* Encodable+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		93DC2FDE2219C301003C520D /* ContactActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactActionView.swift; sourceTree = "<group>"; };
 		93DC2FE02219DCCF003C520D /* ContactEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactEditView.swift; sourceTree = "<group>"; };
 		93DC2FE2221A5822003C520D /* ContactRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactRequest.swift; sourceTree = "<group>"; };
+		93DC2FE6221AE163003C520D /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 				93DC2FC52219313B003C520D /* Optional+Extension.swift */,
 				93DC2FC92219318C003C520D /* UITableView+Extension.swift */,
 				93DC2FCF221943E8003C520D /* UIColor+Extension.swift */,
+				93DC2FE6221AE163003C520D /* Encodable+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				93DC2FD922195581003C520D /* EditContactViewModel.swift in Sources */,
 				93DC2FC822193163003C520D /* Helper.swift in Sources */,
 				93DC2FDF2219C301003C520D /* ContactActionView.swift in Sources */,
+				93DC2FE7221AE163003C520D /* Encodable+Extension.swift in Sources */,
 				93DC2F9C22192AA3003C520D /* Navigation.swift in Sources */,
 				93DC2FE12219DCCF003C520D /* ContactEditView.swift in Sources */,
 				93DC2FB422192EE2003C520D /* DataProvider.swift in Sources */,

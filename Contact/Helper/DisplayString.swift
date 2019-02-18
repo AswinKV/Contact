@@ -22,6 +22,7 @@ struct DisplayString {
         static let mobile = NSLocalizedString("mobile", comment: "mobile text in contact details screen.")
         static let firstName = NSLocalizedString("firstName", comment: "first name text in edit contact screen.")
         static let lastName = NSLocalizedString("lastName", comment: "last name text in edit contact screen.")
+        static let save = NSLocalizedString("save", comment: "save button text in add contact screen.")
     }
     
     struct General {
