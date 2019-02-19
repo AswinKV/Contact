@@ -52,6 +52,7 @@ class ContactDetailsViewController: UIViewController {
         }).disposed(by: disposeBag)
         callActionView.tapped.bind(to: viewModel.callTapped).disposed(by: callActionView.disposeBag)
         emailActionView.tapped.bind(to: viewModel.emailTapped).disposed(by: emailActionView.disposeBag)
+        messageActionView.tapped.bind(to: viewModel.messageTapped).disposed(by: messageActionView.disposeBag)
 
         viewModel.callWith.subscribe(onNext: { [unowned self] (mobile) in
             self.makeCall(mobile: mobile)
@@ -59,6 +60,10 @@ class ContactDetailsViewController: UIViewController {
         
         viewModel.emailWith.subscribe(onNext: { [unowned self] (email) in
             self.sendEmail(email: email)
+        }).disposed(by: disposeBag)
+        
+        viewModel.messageWith.subscribe(onNext: { [unowned self] (message) in
+            self.sendText(phoneNumber: message)
         }).disposed(by: disposeBag)
         
         viewModel.mobileText.subscribe(onNext: { [unowned self] mobile in
@@ -258,7 +263,19 @@ class ContactDetailsViewController: UIViewController {
             
             present(mail, animated: true)
         } else {
-            // show failure alert
+            Helper.showAlert(message: DisplayString.Contact.mailNotAvailable)
+            print("log to crash logging ->")
+        }
+    }
+    
+    private func sendText(phoneNumber: String) {
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.recipients = [phoneNumber]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            Helper.showAlert(message: DisplayString.Contact.smsNotAvailable)
         }
     }
 }
@@ -266,5 +283,11 @@ class ContactDetailsViewController: UIViewController {
 extension ContactDetailsViewController: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true)
+    }
+}
+
+extension ContactDetailsViewController: MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

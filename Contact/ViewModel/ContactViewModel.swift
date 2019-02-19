@@ -16,6 +16,7 @@ protocol ContactViewModelling {
     var callTapped: PublishSubject<Void> { get }
     var favouriteTapped: PublishRelay<Bool?> { get }
     var emailTapped: PublishSubject<Void> { get }
+    var messageTapped: PublishSubject<Void> { get }
     // Output
     var emailIdText: Observable<String> { get }
     var fullNameText: Observable<String> { get }
@@ -27,6 +28,7 @@ protocol ContactViewModelling {
     var emailWith: Observable<String> { get }
     var contactUpdated: Observable<Contact> { get }
     var favourite: Observable<Bool> { get }
+    var messageWith: Observable<String> { get }
 }
 
 class ContactViewModel: ContactViewModelling {
@@ -35,6 +37,7 @@ class ContactViewModel: ContactViewModelling {
     var callTapped: PublishSubject<Void> = PublishSubject()
     var favouriteTapped: PublishRelay<Bool?> = PublishRelay()
     var emailTapped: PublishSubject<Void> = PublishSubject()
+    var messageTapped: PublishSubject<Void> = PublishSubject()
     // Output
     var emailIdText: Observable<String> = Observable.empty()
     var fullNameText: Observable<String> = Observable.empty()
@@ -46,7 +49,8 @@ class ContactViewModel: ContactViewModelling {
     var emailWith: Observable<String> = Observable.empty()
     var contactUpdated: Observable<Contact> = Observable.empty()
     var favourite: Observable<Bool> = Observable.empty()
-
+    var messageWith: Observable<String> = Observable.empty()
+    
     let model: ContactDetail
     let repository: ContactFetching
     init(model: ContactDetail, repository: ContactFetching) {
@@ -99,6 +103,11 @@ class ContactViewModel: ContactViewModelling {
             })
             .ignoreNil()
         
+        messageWith = messageTapped.map({ [unowned self]() -> String? in
+                self.model.phoneNumber
+            })
+            .ignoreNil()
+
         contactUpdated =  favouriteTapped
             .asObservable().ignoreNil()
             .map {[unowned self](favourite) -> ContactRequest in

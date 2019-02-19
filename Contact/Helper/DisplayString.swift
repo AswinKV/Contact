@@ -22,9 +22,10 @@ struct DisplayString {
         static let firstName = NSLocalizedString("firstName", comment: "first name text in edit contact screen.")
         static let lastName = NSLocalizedString("lastName", comment: "last name text in edit contact screen.")
         static let save = NSLocalizedString("save", comment: "save button text in add contact screen.")
-        static let favourited = NSLocalizedString("favourited", comment: "save button text in add contact screen.")
-        static let unfavourited = NSLocalizedString("unfavourited", comment: "save button text in add contact screen.")
-
+        static let favourited = NSLocalizedString("favourited", comment: "")
+        static let unfavourited = NSLocalizedString("unfavourited", comment: "")
+        static let smsNotAvailable = NSLocalizedString("smsNotAvailable", comment: "SMS services are not available")
+        static let mailNotAvailable = NSLocalizedString("mailNotAvailable", comment: "Mail services are not available")
     }
     
     struct Validation {

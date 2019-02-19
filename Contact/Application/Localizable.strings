@@ -27,3 +27,5 @@ camera = "Camera";
 album = "Photo Album";
 favourited = "Favourited.";
 unfavourited = "Unfavourited.";
+smsNotAvailable = "SMS services are not available";
+mailNotAvailable = "Mailing services are not available";
