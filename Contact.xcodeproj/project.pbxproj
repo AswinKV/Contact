@@ -53,6 +53,7 @@
 		93DC2FE3221A5822003C520D /* ContactRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE2221A5822003C520D /* ContactRequest.swift */; };
 		93DC2FE7221AE163003C520D /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE6221AE163003C520D /* Encodable+Extension.swift */; };
 		93DC2FE9221B7FE6003C520D /* RUIIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE8221B7FE6003C520D /* RUIIndicator.swift */; };
+		93DC2FF3221C0466003C520D /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2FF2221C0466003C520D /* IQKeyboardManagerSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		93DC2FE2221A5822003C520D /* ContactRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactRequest.swift; sourceTree = "<group>"; };
 		93DC2FE6221AE163003C520D /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		93DC2FE8221B7FE6003C520D /* RUIIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIIndicator.swift; sourceTree = "<group>"; };
+		93DC2FF2221C0466003C520D /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DC2F8F2219254F003C520D /* RxDataSources.framework in Frameworks */,
+				93DC2FF3221C0466003C520D /* IQKeyboardManagerSwift.framework in Frameworks */,
 				93DC2F902219254F003C520D /* Alamofire.framework in Frameworks */,
 				93DC2FCD2219367B003C520D /* Differentiator.framework in Frameworks */,
 				93DC2F922219254F003C520D /* RxCocoa.framework in Frameworks */,
@@ -218,6 +221,7 @@
 		93DC2F822219254F003C520D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93DC2FF2221C0466003C520D /* IQKeyboardManagerSwift.framework */,
 				93DC2F872219254F003C520D /* Alamofire.framework */,
 				93DC2F8A2219254F003C520D /* Differentiator.framework */,
 				93DC2F852219254F003C520D /* Kingfisher.framework */,
@@ -476,6 +480,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IQKeyboardManagerSwift.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -487,6 +492,7 @@
 				"$(DERIVED_FILE_DIR)/RxSwift.framework",
 				"$(DERIVED_FILE_DIR)/RxDataSources.framework",
 				"$(DERIVED_FILE_DIR)/Differentiator.framework",
+				"$(DERIVED_FILE_DIR)/IQKeyboardManagerSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -701,7 +707,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 66JLRX2SMQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -711,7 +717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aswinkv.Contact;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aisling.Contact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -723,7 +729,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 66JLRX2SMQ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -733,7 +739,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.aswinkv.Contact;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aisling.Contact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

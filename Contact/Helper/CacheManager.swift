@@ -8,14 +8,16 @@
 
 import Foundation
 
+/// querry if a file exists in cache with forKey.
 class CacheManager {
-    private let fileName: String
+    private var fileName: String!
     private lazy var url = {
         return Helper.getCachesDirectory().appendingPathComponent(fileName, isDirectory: false)
     }()
     
-    init(for key: String) {
-        self.fileName = key.lowercased()
+    func forKey(value: String) -> CacheManager {
+        self.fileName = value.lowercased()
+        return self
     }
     
     var fileExists: Bool {

@@ -10,7 +10,7 @@ import RxSwift
 
 protocol HomeScreenViewModelling {
     // Input
-    var submitButtonClicked: PublishSubject<Void> { get }
+    var viewWillAppear: PublishSubject<Void> { get }
     var addButtonTapped: PublishSubject<Void> { get }
     var cellSelected: PublishSubject<ContactCellViewModeling> { get }
     // Output
@@ -21,7 +21,7 @@ protocol HomeScreenViewModelling {
 
 class HomeScreenViewModel: HomeScreenViewModelling {
     // Input
-    var submitButtonClicked: PublishSubject<Void> = PublishSubject()
+    var viewWillAppear: PublishSubject<Void> = PublishSubject()
     var cellSelected: PublishSubject<ContactCellViewModeling>  = PublishSubject()
     var addButtonTapped: PublishSubject<Void> = PublishSubject()
     // Output
@@ -37,7 +37,7 @@ class HomeScreenViewModel: HomeScreenViewModelling {
     }
     
     private func createObservables() {
-        tableItems = submitButtonClicked
+        tableItems = viewWillAppear
             .flatMap { [unowned self] in
                 self.fetchUsers()
             }.map { [unowned self] model in

@@ -30,7 +30,7 @@ final class Navigation {
     }
     
     private func showHome() -> UIViewController {
-        let repository = ContactRepository()
+        let repository = ContactRepository(cacheManager: CacheManager())
         let viewModel = HomeScreenViewModel(repository: repository)
         let viewController = HomeViewController(viewModel: viewModel)
         viewController.navigationItem.title = DisplayString.Title.contact

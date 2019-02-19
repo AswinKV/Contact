@@ -13,7 +13,15 @@ class ContactRepository: ContactFetching {
     private var cacheManager: CacheManager!
     private let disposeBag = DisposeBag()
     
+    init(cacheManager: CacheManager) {
+        self.cacheManager = cacheManager
+    }
+
     func getContacts() -> Observable<[Contact]> {
+        let contacts = getContactsFromCache()
+        if !contacts.isEmpty {
+            return returnContactsObservable(contacts: contacts)
+        }
         return getContactsFromAPI()
     }
     
@@ -31,13 +39,6 @@ class ContactRepository: ContactFetching {
     func createContact(with contact: ContactRequest) -> Observable<Contact> {
         guard let dict = try? contact.asDictionary() else { fatalError() }
         return createContactApi(with: dict)
-    }
-    
-    private func getContactsFromAPI() -> Observable<[Contact]> {
-        let provider = NetworkProvider<[Contact]>(apiType: Api.getContacts)
-        let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
-        showLoader(observable: serviceLoader.refreshing)
-        return serviceLoader.item
     }
     
     private func getContactDetailsFromAPI(for identifier: String) -> Observable<ContactDetail> {
@@ -61,6 +62,48 @@ class ContactRepository: ContactFetching {
         return serviceLoader.item
     }
     
+    //    MARK :- Logic to fetch contacts from either cache or API
+
+    private func cache<T: Codable>(response: T) {
+        do {
+            try cacheManager.forKey(value: "contacts").store(response)
+        } catch let error {
+            print("log to crash reporting -> \(error)")
+        }
+    }
+
+    private func getContactsFromCache() -> [Contact] {
+        do {
+            let contacts = try cacheManager.forKey(value: "contacts").retrieve(as: [Contact].self)
+            return contacts
+        } catch let error {
+            print("log to crash reporting -> \(error)")
+        }
+        fatalError()
+    }
+    
+    private func getContactsFromAPI() -> Observable<[Contact]> {
+        let provider = NetworkProvider<[Contact]>(apiType: Api.getContacts)
+        let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
+        showLoader(observable: serviceLoader.refreshing)
+        cacheFromObservable(observable: serviceLoader.item)
+        return serviceLoader.item
+    }
+    
+    private func cacheFromObservable<T: Codable>(observable: Observable<T>) {
+        observable.subscribe(onNext: { [weak self](response) in
+            self?.cache(response: response)
+        }).disposed(by: disposeBag)
+    }
+    
+    private func returnContactsObservable(contacts: [Contact]) -> Observable<[Contact]> {
+        return Observable<[Contact]>.create { (observer) -> Disposable in
+            observer.onNext(contacts)
+            return Disposables.create()
+        }
+    }
+    
+    //    MARK :- Logic to show loader
     private func showLoader(observable: Observable<Bool>) {
         observable.subscribe(onNext: { (isRefreshing) in
             switch isRefreshing {

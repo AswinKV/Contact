@@ -34,18 +34,15 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.viewWillAppear.onNext(())
     }
     
     private func setupUIElements() {
         view.backgroundColor = .white
         setupTableView()
-        setupSubmitButton()
     }
     
     private func setupBindings() {
-        submitButton.rx.tap
-            .bind(to: viewModel.submitButtonClicked)
-            .disposed(by: disposeBag)
         
         let dataSource = RxTableViewSectionedReloadDataSource<CustomSection>(configureCell: {(_, tableView, indexPath, item)
             in
@@ -59,23 +56,6 @@ class HomeViewController: UIViewController {
         tableView.rx.modelSelected(ContactCellViewModeling.self)
             .bind(to: viewModel.cellSelected)
             .disposed(by: disposeBag)
-    }
-    
-    var submitButton: UIButton!
-    private func setupSubmitButton() {
-        submitButton = UIButton()
-        submitButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(submitButton)
-        
-        NSLayoutConstraint.activate([
-            submitButton.heightAnchor.constraint(equalToConstant: 44),
-            submitButton.widthAnchor.constraint(equalToConstant: 120),
-            submitButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0)
-            ])
-        submitButton.setTitle("Submit", for: .normal)
-        submitButton.titleLabel?.font = .boldSystemFont(ofSize: 24)
-        submitButton.backgroundColor = .black
-        
     }
     
     var tableView: UITableView!

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,10 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.app = Application(window: window)
         self.window = window
         _ = self.app?.navigation
-        
+        setKeyboardManagerSettings()
         return true
     }
 
+    func setKeyboardManagerSettings() {
+        // For Handling of keyboard
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
+    }
 
 }
 
