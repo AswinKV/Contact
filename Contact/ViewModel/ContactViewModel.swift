@@ -50,7 +50,7 @@ class ContactViewModel: ContactViewModelling {
     var contactUpdated: Observable<Contact> = Observable.empty()
     var favourite: Observable<Bool> = Observable.empty()
     var messageWith: Observable<String> = Observable.empty()
-    
+
     let model: ContactDetail
     let repository: ContactFetching
     init(model: ContactDetail, repository: ContactFetching) {
@@ -58,51 +58,51 @@ class ContactViewModel: ContactViewModelling {
         self.repository = repository
         createObservables()
     }
-    
+
     private func createObservables() {
         let firstName = model.firstName ?? ""
         let lastName = model.lastName ?? ""
         let fullName = "\(firstName) \(lastName)"
-        
+
         emailIdText = Observable
             .just(model.email)
             .ignoreNil()
-        
+
         favourite = Observable
             .just(model.favorite)
             .ignoreNil()
-        
+
         fullNameText = Observable
             .just(fullName)
-        
+
         imageUrl = Observable
             .just(model.profilePic)
             .map {Helper.toURL(with: $0)}
             .ignoreNil()
-        
+
         mobileText = Observable
             .just(model.phoneNumber)
             .ignoreNil()
-        
+
         emailText = Observable
             .just(model.email)
             .ignoreNil()
-        
+
         editContactViewModel = editTapped
             .map {[unowned self] () -> EditContactViewModelling in
                 EditContactViewModel(model: self.model, repository: self.repository)
             }
-        
+
         callWith = callTapped.map({ [unowned self]() -> String? in
                 self.model.phoneNumber
             })
             .ignoreNil()
-        
+
         emailWith = emailTapped.map({ [unowned self]() -> String? in
                 self.model.email
             })
             .ignoreNil()
-        
+
         messageWith = messageTapped.map({ [unowned self]() -> String? in
                 self.model.phoneNumber
             })
@@ -117,7 +117,7 @@ class ContactViewModel: ContactViewModelling {
                 self.updateContact(contact: $0)
             }
     }
-    
+
     private func updateContact(contact: ContactRequest) -> Observable<Contact> {
         guard let identifier = model.id else { fatalError() }
         return repository.updateContact(with: identifier.description, and: contact)

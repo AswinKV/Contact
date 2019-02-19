@@ -13,7 +13,7 @@ struct Contact: Codable {
     let lastName: String?
     let profilePic: String?
     let url: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case favorite = "favorite"
         case firstName = "first_name"
@@ -22,7 +22,7 @@ struct Contact: Codable {
         case profilePic = "profile_pic"
         case url = "url"
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         favorite = try values.decodeIfPresent(Bool.self, forKey: .favorite)

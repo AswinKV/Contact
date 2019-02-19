@@ -15,7 +15,7 @@ class MockDataProvider<T: Decodable>: DataProvider {
     required init(apiType: ApiType) {
         self.apiType = apiType
     }
-    
+
     func fetchResponse() -> Observable<T> {
         return Observable.create { (observer) -> Disposable in
             let bundle = Bundle(for: type(of: self))
@@ -28,5 +28,5 @@ class MockDataProvider<T: Decodable>: DataProvider {
             return Disposables.create()
         }
     }
-    
+
 }

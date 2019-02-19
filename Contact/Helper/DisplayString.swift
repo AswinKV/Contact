@@ -9,7 +9,7 @@
 import Foundation
 
 struct DisplayString {
-    
+
     struct Contact {
         static let edit = NSLocalizedString("edit", comment: "edit button text in contact details screen.")
         static let done = NSLocalizedString("done", comment: "done button text in edit contact screen.")
@@ -27,21 +27,21 @@ struct DisplayString {
         static let smsNotAvailable = NSLocalizedString("smsNotAvailable", comment: "SMS services are not available")
         static let mailNotAvailable = NSLocalizedString("mailNotAvailable", comment: "Mail services are not available")
     }
-    
+
     struct Validation {
         static let invalidPhone = NSLocalizedString("invalidPhone", comment: "")
         static let invalidName = NSLocalizedString("invalidName", comment: "")
         static let invalidEmail = NSLocalizedString("invalidEmail", comment: "")
         static let networkError = NSLocalizedString("networkError", comment: "")
     }
-    
+
     struct General {
         static let ok = NSLocalizedString("ok", comment: "")
         static let cancel = NSLocalizedString("cancel", comment: "cancel button text in edit contact screen.")
         static let camera = NSLocalizedString("camera", comment: "save button text in add contact screen.")
         static let album = NSLocalizedString("album", comment: "save button text in add contact screen.")
     }
-    
+
     struct Title {
         static let contact = NSLocalizedString("contact", comment: "home screen title.")
     }

@@ -15,7 +15,7 @@ struct CustomSection {
 
 extension CustomSection: SectionModelType {
     typealias Item = CellRepresentable
-    
+
     init(original: CustomSection, items: [CellRepresentable]) {
         self = original
         self.items = items

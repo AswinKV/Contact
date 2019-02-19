@@ -22,7 +22,7 @@ class ContactTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
+
     func testContactResponseModel() {
         let provider = MockContactFetching()
         do {
@@ -36,7 +36,7 @@ class ContactTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
-    
+
     func testCaching() {
         let contact = ContactRequest(email: "aisling.linux@gmail.com", favourite: true, firstName: "Aswin", lastName: "K", phoneNumber: "7975644718")
         let cacheManager = CacheManager()
@@ -56,7 +56,7 @@ class ContactTests: XCTestCase {
         }
 
     }
-    
+
     func testAddContactViewModelError() {
         // test to check the error validation logic. this should return an error.
         let provider = MockContactFetching()

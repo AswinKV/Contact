@@ -31,20 +31,20 @@ class ContactCellViewModel: ContactCellViewModeling {
         self.model = model
         createObservables()
     }
-    
+
     private func createObservables() {
         let firstName = model.firstName ?? ""
         let lastName = model.lastName ?? ""
         let fullName = "\(firstName) \(lastName)"
-        
+
         fullNameText = Observable
             .just(fullName)
-        
+
         imageUrl = Observable
             .just(model.profilePic)
             .map {Helper.toURL(with: $0)}
             .ignoreNil()
-        
+
         isFavourite = Observable
             .just(model.favorite)
             .ignoreNil()
@@ -55,7 +55,7 @@ extension ContactCellViewModel {
     static func registerCell(tableView: UITableView) {
         tableView.registerWithCell(ContactCell.self)
     }
-    
+
     func cellInstance(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView
             .dequeueReusableCell(withIdentifier: ContactCell.defaultReuseIdentifier, for: indexPath) as? ContactCell

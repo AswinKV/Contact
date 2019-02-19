@@ -14,7 +14,7 @@ struct ContactRequest : Codable {
     let firstName: String?
     let lastName: String?
     let phoneNumber: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case email = "email"
         case favorite = "favorite"
@@ -22,7 +22,7 @@ struct ContactRequest : Codable {
         case lastName = "last_name"
         case phoneNumber = "phone_number"
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         email = try values.decodeIfPresent(String.self, forKey: .email)
@@ -31,7 +31,7 @@ struct ContactRequest : Codable {
         lastName = try values.decodeIfPresent(String.self, forKey: .lastName)
         phoneNumber = try values.decodeIfPresent(String.self, forKey: .phoneNumber)
     }
-    
+
     init(email: String?, favourite: Bool?, firstName: String?, lastName: String?, phoneNumber: String?) {
         self.email = email
         self.favorite = favourite

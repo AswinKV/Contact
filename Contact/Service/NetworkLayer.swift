@@ -40,11 +40,11 @@ enum Api {
 }
 
 extension Api: ApiType {
-    
+
     var baseURL: URL {
         return URL(string: "\(AppConstants.baseURL)/")!
     }
-    
+
     var path: String {
         switch self {
         case .getContacts:
@@ -57,7 +57,7 @@ extension Api: ApiType {
             return "contacts/\(parameters.url).json"
         }
     }
-    
+
     var method: RequestMethod {
         switch self {
         case .getContacts:
@@ -70,7 +70,7 @@ extension Api: ApiType {
             return .put
         }
     }
-    
+
     var parameters: [String: Any]? {
         var parameters = [String: Any]()
         switch self {
@@ -83,7 +83,7 @@ extension Api: ApiType {
         }
         return parameters
     }
-    
+
     var parameterEncoding: ParamsEncoding {
         switch self {
         case .putAContact:

@@ -13,14 +13,14 @@ import RxDataSources
 import MessageUI
 
 class ContactDetailsViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupUIElements()
         setupBindings()
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let gradientLayer = getGradientLayer()
@@ -28,23 +28,23 @@ class ContactDetailsViewController: UIViewController {
         gradientView.layer.insertSublayer(gradientLayer, at: 0)
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
     }
-    
+
     private var viewModel: ContactViewModelling!
     var disposeBag = DisposeBag()
-    
+
     init(viewModel: ContactViewModelling) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
+
     private func setupBindings() {
         viewModel.fullNameText.bind(to: fullNameLabel.rx.text).disposed(by: disposeBag)
         viewModel.imageUrl.subscribe(onNext: { [unowned self] (url) in
@@ -57,15 +57,15 @@ class ContactDetailsViewController: UIViewController {
         viewModel.callWith.subscribe(onNext: { [unowned self] (mobile) in
             self.makeCall(mobile: mobile)
         }).disposed(by: disposeBag)
-        
+
         viewModel.emailWith.subscribe(onNext: { [unowned self] (email) in
             self.sendEmail(email: email)
         }).disposed(by: disposeBag)
-        
+
         viewModel.messageWith.subscribe(onNext: { [unowned self] (message) in
             self.sendText(phoneNumber: message)
         }).disposed(by: disposeBag)
-        
+
         viewModel.mobileText.subscribe(onNext: { [unowned self] mobile in
             self.setupMobileEditView(mobile: mobile)
         }).disposed(by: disposeBag)
@@ -73,7 +73,7 @@ class ContactDetailsViewController: UIViewController {
         viewModel.emailText.subscribe(onNext: { [unowned self] email in
             self.setupEmailEditView(email: email)
         }).disposed(by: disposeBag)
-        
+
         viewModel.contactUpdated.subscribe(onNext: {[unowned self] contact in
                 self.favouriteActionView.removeFromSuperview()
                 if let favourite = contact.favorite {
@@ -108,15 +108,15 @@ class ContactDetailsViewController: UIViewController {
         gradientView = UIView()
         gradientView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(gradientView)
-        
+
         NSLayoutConstraint.activate([
             gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             gradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             gradientView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            gradientView.heightAnchor.constraint(equalToConstant: 335),
+            gradientView.heightAnchor.constraint(equalToConstant: 335)
             ])
     }
-    
+
     private func getGradientLayer() -> CAGradientLayer {
         let colorTop = UIColor.white.cgColor
         let colorBottom = UIColor.turquoise().cgColor
@@ -126,18 +126,18 @@ class ContactDetailsViewController: UIViewController {
         gradientLayer.opacity = 0.55
         return gradientLayer
     }
-    
+
     private var profileImageView: UIImageView!
     private func setupProfileImageView() {
         profileImageView = UIImageView()
         view.addSubview(profileImageView)
-        
+
         NSLayoutConstraint.activate([
             profileImageView.trailingAnchor.constraint(equalTo: gradientView.trailingAnchor, constant: -127),
             profileImageView.leadingAnchor.constraint(equalTo: gradientView.leadingAnchor, constant: 127),
-            profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor, constant: 0),
+            profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor, constant: 0)
             ])
-        
+
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.borderColor = UIColor.white.cgColor
@@ -145,24 +145,23 @@ class ContactDetailsViewController: UIViewController {
         profileImageView.image = UIImage(named: "user")
         profileImageView.contentMode = .scaleAspectFill
     }
-    
+
     private var fullNameLabel: UILabel!
     private func setupFullNameLabel() {
         fullNameLabel = UILabel()
         view.addSubview(fullNameLabel)
-        
+
         NSLayoutConstraint.activate([
             fullNameLabel.centerXAnchor.constraint(equalTo: profileImageView.centerXAnchor, constant: 0),
-            fullNameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 8),
+            fullNameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 8)
             ])
-        
+
         fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
         fullNameLabel.numberOfLines = 0
         fullNameLabel.textAlignment = .left
         fullNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
         fullNameLabel.textColor = UIColor.tundora()
     }
-
 
     private var mainStackView: UIStackView!
     private func setUpStackView() {
@@ -172,24 +171,24 @@ class ContactDetailsViewController: UIViewController {
         mainStackView.distribution = .equalSpacing
         gradientView.addSubview(mainStackView)
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 16),
             mainStackView.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: -12),
             mainStackView.leadingAnchor.constraint(equalTo: gradientView.leadingAnchor, constant: 44),
             mainStackView.trailingAnchor.constraint(equalTo: gradientView.trailingAnchor, constant: -44)
             ])
-        
+
         setupContactActionStack()
     }
-    
+
     private var messageActionView: ContactActionView!
     private func setupMessageActionView() {
         messageActionView = ContactActionView()
         messageActionView.prepare(with: UIImage(named: "chat"), and: DisplayString.Contact.message)
         mainStackView.addArrangedSubview(messageActionView)
     }
-    
+
     private var callActionView: ContactActionView!
     private func setupCallActionView() {
         callActionView = ContactActionView()
@@ -217,7 +216,7 @@ class ContactDetailsViewController: UIViewController {
         setupEmailActionView()
         setupFavouriteActionView(isHighlighted: false)
     }
-    
+
     private var secondStackView: UIStackView!
     private func setUpSecondStackView() {
         secondStackView = UIStackView()
@@ -226,15 +225,15 @@ class ContactDetailsViewController: UIViewController {
         secondStackView.distribution = .equalSpacing
         view.addSubview(secondStackView)
         secondStackView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             secondStackView.topAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: 0),
             secondStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             secondStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0)
             ])
-        
+
     }
-    
+
     private var mobileEditView: ContactEditView!
     private func setupMobileEditView(mobile: String) {
         mobileEditView = ContactEditView()
@@ -248,26 +247,26 @@ class ContactDetailsViewController: UIViewController {
         emailEditView.prepare(with: DisplayString.Contact.email, and: email, keyboardType: .emailAddress)
         secondStackView.addArrangedSubview(emailEditView)
     }
-    
+
 //    Mark:- setup contact actions.
     private func makeCall(mobile: String) {
         Helper.makeCall(toNumber: mobile)
     }
-    
+
     private func sendEmail(email: String) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
             mail.setToRecipients([email])
             mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
-            
+
             present(mail, animated: true)
         } else {
             Helper.showAlert(message: DisplayString.Contact.mailNotAvailable)
             print("log to crash logging ->")
         }
     }
-    
+
     private func sendText(phoneNumber: String) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()

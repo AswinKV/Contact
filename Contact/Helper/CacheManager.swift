@@ -14,16 +14,16 @@ class CacheManager {
     private lazy var url = {
         return Helper.getCachesDirectory().appendingPathComponent(fileName, isDirectory: false)
     }()
-    
+
     func forKey(value: String) -> CacheManager {
         self.fileName = value.lowercased()
         return self
     }
-    
+
     var fileExists: Bool {
         return FileManager.default.fileExists(atPath: url.path)
     }
-    
+
     func store<T: Codable>(_ object: T) throws {
         let encoder = JSONEncoder()
         do {
@@ -36,7 +36,7 @@ class CacheManager {
             throw CacheError.unableToStore
         }
     }
-    
+
     func retrieve<T: Codable>(as type: T.Type) throws -> T {
         guard fileExists else { throw CacheError.fileDoesNotExist }
         guard let data = FileManager.default.contents(atPath: url.path) else {

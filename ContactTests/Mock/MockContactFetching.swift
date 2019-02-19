@@ -16,18 +16,17 @@ class MockContactFetching: ContactFetching {
         let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
         return serviceLoader.item
     }
-    
+
     func getContactDetails(for identifier: String) -> Observable<ContactDetail> {
         fatalError()
     }
-    
+
     func updateContact(with identifier: String, and contact: ContactRequest) -> Observable<Contact> {
         fatalError()
     }
-    
+
     func createContact(with contact: ContactRequest) -> Observable<Contact> {
         fatalError()
     }
-    
-    
+
 }

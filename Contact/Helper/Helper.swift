@@ -14,7 +14,7 @@ struct Helper {
         let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
         return paths[0]
     }
-    
+
     static func showAlert(withTitle title: String = "",
                           message: String,
                           actionTitle: String = "Ok",
@@ -24,7 +24,7 @@ struct Helper {
         alertController.addAction(okayAction)
         UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
-    
+
     static func showAlertON(withTitle title: String = "",
                           message: String,
                           actionTitle: String = "Ok",
@@ -34,16 +34,14 @@ struct Helper {
         alertController.addAction(okayAction)
         alertController.show()
     }
-    
 
-    
     static func verifyUrl(urlString: String) -> Bool {
         guard let url = URL(string: urlString) else {
             return false
         }
         return UIApplication.shared.canOpenURL(url)
     }
-    
+
     static func toURL(with urlString: String?) -> URL? {
         guard let urlString = urlString else { return nil }
         switch Helper.verifyUrl(urlString: urlString) {
@@ -53,7 +51,7 @@ struct Helper {
             return URL(string: AppConstants.baseURL + urlString)
         }
     }
-    
+
     static func makeCall(toNumber: String) {
         let number = toNumber.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
         if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
@@ -67,7 +65,7 @@ struct Helper {
         activityIndicatorView.startAnimating()
         UIApplication.shared.keyWindow?.isUserInteractionEnabled = false
     }
-    
+
     static func hideIndicator() {
         activityIndicatorCoverView.removeFromSuperview()
         activityIndicatorView.removeFromSuperview()

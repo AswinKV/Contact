@@ -17,17 +17,17 @@ protocol DataProvider {
 
 class NetworkProvider<T: Decodable> : DataProvider {
     private let apiType: ApiType
-    
+
     required init(apiType: ApiType) {
         self.apiType = apiType
     }
-    
+
     func fetchResponse() -> Observable<T> {
         guard let httpMethod = HTTPMethod(rawValue: apiType.method.rawValue)
             else { return Observable.error(NetworkError.invalidMethod)}
         let url: URL = apiType.baseURL.appendingPathComponent(apiType.path)
         let paramsEncoding: ParameterEncoding = convertParamEncoding(encoding: apiType.parameterEncoding)
-        
+
         return Observable<T>.create { [unowned self] observer in
             AF.request(url,
                               method: httpMethod,
@@ -47,7 +47,7 @@ class NetworkProvider<T: Decodable> : DataProvider {
             return Disposables.create()
         }
     }
-    
+
     private func convertParamEncoding(encoding: ParamsEncoding) -> ParameterEncoding {
         switch encoding {
         case .json:

@@ -16,7 +16,7 @@ struct ContactDetail: Codable {
     let phoneNumber: String?
     let profilePic: String?
     let updatedAt: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"
         case email = "email"
@@ -28,7 +28,7 @@ struct ContactDetail: Codable {
         case profilePic = "profile_pic"
         case updatedAt = "updated_at"
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         createdAt = try values.decodeIfPresent(String.self, forKey: .createdAt)

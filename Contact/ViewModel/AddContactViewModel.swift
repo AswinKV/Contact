@@ -54,27 +54,27 @@ class AddContactViewModel: AddContactViewModelling {
         self.repository = repository
         createObservables()
     }
-    
+
     private func createObservables() {
-        
+
         emailError = doneTapped
             .withLatestFrom(emailString.startWith(""))
             .map { [unowned self] email in
                 self.alertIfInvalid(email: email)
             }
-        
+
         mobileError = doneTapped
             .withLatestFrom(mobileString.startWith(""))
             .map { [unowned self] phone in
                 self.alertIfInvalid(phone: phone)
             }
-        
+
         firstNameError = doneTapped
             .withLatestFrom(firstNameString.startWith(""))
             .map { [unowned self] name in
                 self.alertIfInvalid(name: name)
         }
-        
+
         errorObservable = Observable.zip(mobileError, emailError, firstNameError).map { mobileError, emailError, firstNameError in
             if let mobileError = mobileError {
                 return mobileError
@@ -85,7 +85,7 @@ class AddContactViewModel: AddContactViewModelling {
             }
             return nil
         }
-        
+
         contactUpdated =  errorObservable
             .filter {
                 $0 == nil
@@ -98,47 +98,47 @@ class AddContactViewModel: AddContactViewModelling {
                 self.create(contact: $0)
             }
     }
-    
+
     private func create(contact: ContactRequest) -> Observable<Contact> {
         return repository.createContact(with: contact)
     }
-    
+
     // MARK: - Email validation logic
-    
+
     private func alertIfInvalid(email: String) -> String? {
         return isValidEmail(value: email) ? nil : DisplayString.Validation.invalidEmail
     }
-    
+
     private func isValidEmail(value: String) -> Bool {
         return validate(value: value) && validateRegex(with: value)
     }
-    
+
     private func validate(value: String) -> Bool {
         return !value.isEmpty
     }
-    
+
     private func validateRegex(with value: String) -> Bool {
         let regTest = NSPredicate(format: "SELF MATCHES %@", AppConstants.Regex.email)
         return regTest.evaluate(with: value)
     }
-    
+
     // MARK: - Phone validation logic
-    
+
     private func alertIfInvalid(phone: String) -> String? {
         return isValid(phone: phone) ? nil : DisplayString.Validation.invalidPhone
     }
-    
+
     private func isValid(phone: String) -> Bool {
         return validate(value: phone) && validate(phone: phone)
     }
-    
+
     func validate(phone: String) -> Bool {
         let regTest = NSPredicate(format: "SELF MATCHES %@", AppConstants.Regex.phone)
         return regTest.evaluate(with: phone)
     }
-    
-    // MARK :- Name validation logic
-    
+
+    // MARK: - Name validation logic
+
     private func alertIfInvalid(name: String) -> String? {
         return validate(value: name) ? nil : DisplayString.Validation.invalidName
     }

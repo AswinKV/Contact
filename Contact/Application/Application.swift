@@ -12,7 +12,7 @@ import UIKit
 class Application {
     private let window: UIWindow
     lazy var navigation = Navigation(window: self.window, application: self)
-    
+
     init(window: UIWindow) {
         self.window = window
     }

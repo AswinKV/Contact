@@ -1,4 +1,3 @@
-
 //
 //  ContactDetailsViewController.swift
 //  Contact
@@ -13,55 +12,55 @@ import RxCocoa
 import RxDataSources
 
 class EditContactViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupUIElements()
         setupBindings()
     }
-    
+
     private var viewModel: EditContactViewModelling!
     var disposeBag = DisposeBag()
-    
+
     init(viewModel: EditContactViewModelling) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
+
     private func setupBindings() {
         viewModel.mobileText.subscribe(onNext: { [unowned self] mobile in
             self.mobileEditView.removeFromSuperview()
             self.setupMobileEditView(mobile: mobile)
         }).disposed(by: disposeBag)
-        
+
         viewModel.emailText.subscribe(onNext: { [unowned self] email in
             self.emailEditView.removeFromSuperview()
             self.setupEmailEditView(email: email)
         }).disposed(by: disposeBag)
-        
+
         viewModel.firstNameText.subscribe(onNext: { [unowned self] name in
             self.firstNameEditView.removeFromSuperview()
             self.setupFirstNameEditView(name: name)
         }).disposed(by: disposeBag)
-        
+
         viewModel.lastNameText.subscribe(onNext: { [unowned self] name in
             self.lastNameEditView.removeFromSuperview()
             self.setupLastNameEditView(name: name)
         }).disposed(by: disposeBag)
-        
+
         viewModel.uploadTapped.subscribe(onNext: { [unowned self] () in
             self.showUploadAlert()
         }).disposed(by: disposeBag)
-        
+
         viewModel.errorObservable.subscribe(onNext: { (text) in
             guard let message = text else { return }
             Helper.showAlertON(message: message)
@@ -73,17 +72,17 @@ class EditContactViewController: UIViewController {
         lastNameEditView.text.bind(to: viewModel.lastNameString).disposed(by: lastNameEditView.disposeBag)
         uploadButton.rx.tap.bind(to: viewModel.uploadTapped).disposed(by: disposeBag)
     }
-    
+
     override func viewDidLayoutSubviews() {
         // Fix me :- duplicate gradient layer addition.
-        
+
         super.viewDidLayoutSubviews()
         let gradientLayer = getGradientLayer()
         gradientLayer.frame = gradientView.bounds
         gradientView.layer.insertSublayer(gradientLayer, at: 0)
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
     }
-    
+
     private func setupUIElements() {
         view.backgroundColor = .white
         setupGradientView()
@@ -91,20 +90,20 @@ class EditContactViewController: UIViewController {
         setUpStackView()
         setupEditViews()
     }
-    
+
     private func setupEditViews() {
         setupMobileEditView(mobile: "")
         setupEmailEditView(email: "")
         setupFirstNameEditView(name: "")
         setupLastNameEditView(name: "")
     }
-    
+
     private var gradientView: UIView!
     private func setupGradientView() {
         gradientView = UIView()
         gradientView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(gradientView)
-        
+
         NSLayoutConstraint.activate([
             gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
             gradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
@@ -112,7 +111,7 @@ class EditContactViewController: UIViewController {
             gradientView.heightAnchor.constraint(equalToConstant: 250)
             ])
     }
-    
+
     private func getGradientLayer() -> CAGradientLayer {
         let colorTop = UIColor.white.cgColor
         let colorBottom = UIColor.turquoise().cgColor
@@ -122,19 +121,19 @@ class EditContactViewController: UIViewController {
         gradientLayer.opacity = 0.55
         return gradientLayer
     }
-    
+
     private var profileImageView: UIImageView!
     private func setupProfileImageView() {
         profileImageView = UIImageView()
         view.addSubview(profileImageView)
-        
+
         NSLayoutConstraint.activate([
             profileImageView.heightAnchor.constraint(equalToConstant: 150),
             profileImageView.centerXAnchor.constraint(equalTo: gradientView.centerXAnchor, constant: 0),
             profileImageView.widthAnchor.constraint(equalTo: profileImageView.heightAnchor, constant: 0),
-            profileImageView.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: -18),
+            profileImageView.bottomAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: -18)
             ])
-        
+
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.borderColor = UIColor.white.cgColor
@@ -152,7 +151,7 @@ class EditContactViewController: UIViewController {
         mainStackView.distribution = .equalSpacing
         view.addSubview(mainStackView)
         mainStackView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: gradientView.bottomAnchor, constant: 0),
             mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
@@ -166,7 +165,7 @@ class EditContactViewController: UIViewController {
         mobileEditView.prepare(with: DisplayString.Contact.mobile, and: mobile, isEditable: true, keyboardType: .phonePad)
         mainStackView.addArrangedSubview(mobileEditView)
     }
-    
+
     private var emailEditView: ContactEditView!
     private func setupEmailEditView(email: String) {
         emailEditView = ContactEditView()
@@ -180,7 +179,7 @@ class EditContactViewController: UIViewController {
         firstNameEditView.prepare(with: DisplayString.Contact.firstName, and: name, isEditable: true, keyboardType: .namePhonePad)
         mainStackView.addArrangedSubview(firstNameEditView)
     }
-    
+
     private var lastNameEditView: ContactEditView!
     private func setupLastNameEditView(name: String) {
         lastNameEditView = ContactEditView()
@@ -193,14 +192,14 @@ class EditContactViewController: UIViewController {
         uploadButton = UIButton()
         uploadButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(uploadButton)
-        
+
         NSLayoutConstraint.activate([
             uploadButton.heightAnchor.constraint(equalToConstant: 60),
             uploadButton.widthAnchor.constraint(equalToConstant: 60),
             uploadButton.trailingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 0),
             uploadButton.bottomAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 0)
             ])
-        
+
         uploadButton.backgroundColor = .white
         uploadButton.tintColor = UIColor.turquoise()
         uploadButton.setImage(UIImage(named: "camera"), for: UIControl.State.normal)
@@ -210,20 +209,20 @@ class EditContactViewController: UIViewController {
     }
 
     private func showUploadAlert() {
-        
+
         let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(_: UIAlertAction) in
             self.getImage(fromSourceType: .camera)
         }))
-        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(_: UIAlertAction) in
             self.getImage(fromSourceType: .photoLibrary)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     private func getImage(fromSourceType sourceType: UIImagePickerController.SourceType) {
-        
+
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
             let imagePickerController = UIImagePickerController()
             imagePickerController.delegate = self

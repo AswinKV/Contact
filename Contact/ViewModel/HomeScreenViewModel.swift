@@ -29,13 +29,13 @@ class HomeScreenViewModel: HomeScreenViewModelling {
     var tableItemTypes: [CellRepresentable.Type] = [ContactCellViewModel.self]
     var contactDetails: Observable<ContactDetail> = Observable.empty()
     var addContactViewModel: Observable<AddContactViewModelling> = Observable.empty()
-    
+
     private var repository: ContactFetching
     init(repository: ContactFetching) {
         self.repository =  repository
         createObservables()
     }
-    
+
     private func createObservables() {
         tableItems = viewWillAppear
             .flatMap { [unowned self] in
@@ -43,27 +43,27 @@ class HomeScreenViewModel: HomeScreenViewModelling {
             }.map { [unowned self] model in
                 self.getTableCells(model: model)
         }
-        
+
         contactDetails = cellSelected
             .flatMap({ [unowned self] viewModel -> Observable<ContactDetail> in
                 guard let identifier = viewModel.identifier, !identifier.isEmpty else { fatalError() }
                 return self.getContactDetails(for: identifier)
             })
-        
+
         addContactViewModel = addButtonTapped
             .map {[unowned self]() -> AddContactViewModelling in
                 AddContactViewModel(repository: self.repository)
             }
     }
-    
+
     private func fetchUsers() -> Observable<[Contact]> {
         return repository.getContacts()
     }
-    
+
     private func getContactDetails(for identifier: String) -> Observable<ContactDetail> {
         return repository.getContactDetails(for: identifier)
     }
-    
+
     private func getUsersSection(model: [Contact]) -> CustomSection? {
         var viewModels = [ContactCellViewModeling]()
         for item in model {
@@ -71,7 +71,7 @@ class HomeScreenViewModel: HomeScreenViewModelling {
         }
         return CustomSection(header: "Contacts", items: viewModels)
     }
-    
+
     func getTableCells(model: [Contact]) -> [CustomSection] {
         guard let section = self.getUsersSection(model: model)
             else { return [] }
