@@ -402,7 +402,6 @@
 				93DC2F4E2219120F003C520D /* Frameworks */,
 				93DC2F4F2219120F003C520D /* Resources */,
 				93DC2F962219271A003C520D /* Carthage */,
-				93BB1C89221C7C0D00DC6CC8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -522,24 +521,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		93BB1C89221C7C0D00DC6CC8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "
-";
-		};
 		93DC2F962219271A003C520D /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
