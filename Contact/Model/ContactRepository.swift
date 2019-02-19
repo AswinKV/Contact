@@ -36,25 +36,38 @@ class ContactRepository: ContactFetching {
     private func getContactsFromAPI() -> Observable<[Contact]> {
         let provider = NetworkProvider<[Contact]>(apiType: Api.getContacts)
         let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
+        showLoader(observable: serviceLoader.refreshing)
         return serviceLoader.item
     }
     
     private func getContactDetailsFromAPI(for identifier: String) -> Observable<ContactDetail> {
         let provider = NetworkProvider<ContactDetail>(apiType: Api.getAContact(withId: identifier))
         let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
+        showLoader(observable: serviceLoader.refreshing)
         return serviceLoader.item
     }
     
     func updateContactApi(with parameters: Parameters) -> Observable<Contact> {
         let provider = NetworkProvider<Contact>(apiType: Api.putAContact(parameters))
         let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
+        showLoader(observable: serviceLoader.refreshing)
         return serviceLoader.item
     }
     
     func createContactApi(with parameters: [String : Any]) -> Observable<Contact> {
         let provider = NetworkProvider<Contact>(apiType: Api.postContacts(parameters))
         let serviceLoader = ServiceLoader(apiCall: provider.fetchResponse)
+        showLoader(observable: serviceLoader.refreshing)
         return serviceLoader.item
+    }
+    
+    private func showLoader(observable: Observable<Bool>) {
+        observable.subscribe(onNext: { (isRefreshing) in
+            switch isRefreshing {
+            case true: Helper.showIndicator()
+            case false: Helper.hideIndicator()
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
