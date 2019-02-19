@@ -25,6 +25,12 @@ struct DisplayString {
         static let save = NSLocalizedString("save", comment: "save button text in add contact screen.")
     }
     
+    struct Validation {
+        static let invalidPhone = NSLocalizedString("invalidPhone", comment: "")
+        static let invalidName = NSLocalizedString("invalidName", comment: "")
+        static let invalidEmail = NSLocalizedString("invalidEmail", comment: "")
+    }
+    
     struct General {
         static let ok = NSLocalizedString("ok", comment: "")
     }

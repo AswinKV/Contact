@@ -42,11 +42,15 @@ class AddContactViewController: UIViewController {
             self.showUploadAlert()
         }).disposed(by: disposeBag)
         
+        viewModel.errorObservable.subscribe(onNext: { (text) in
+            guard let message = text else { return }
+            Helper.showAlert(message: message)
+        }).disposed(by: disposeBag)
         
         mobileEditView.text.bind(to: viewModel.mobileString).disposed(by: mobileEditView.disposeBag)
-        emailEditView.text.bind(to: viewModel.emailString).disposed(by: mobileEditView.disposeBag)
-        firstNameEditView.text.bind(to: viewModel.firstNameString).disposed(by: mobileEditView.disposeBag)
-        lastNameEditView.text.bind(to: viewModel.lastNameString).disposed(by: mobileEditView.disposeBag)
+        emailEditView.text.bind(to: viewModel.emailString).disposed(by: emailEditView.disposeBag)
+        firstNameEditView.text.bind(to: viewModel.firstNameString).disposed(by: firstNameEditView.disposeBag)
+        lastNameEditView.text.bind(to: viewModel.lastNameString).disposed(by: lastNameEditView.disposeBag)
         uploadButton.rx.tap.bind(to: viewModel.uploadTapped).disposed(by: disposeBag)
     }
     
