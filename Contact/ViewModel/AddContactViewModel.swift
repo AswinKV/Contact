@@ -97,7 +97,6 @@ class AddContactViewModel: AddContactViewModelling {
             .flatMap { [unowned self] in
                 self.create(contact: $0)
             }
-
     }
     
     private func create(contact: ContactRequest) -> Observable<Contact> {

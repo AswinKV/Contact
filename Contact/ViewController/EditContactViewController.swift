@@ -61,6 +61,11 @@ class EditContactViewController: UIViewController {
         viewModel.uploadTapped.subscribe(onNext: { [unowned self] () in
             self.showUploadAlert()
         }).disposed(by: disposeBag)
+        
+        viewModel.errorObservable.subscribe(onNext: { (text) in
+            guard let message = text else { return }
+            Helper.showAlertON(message: message)
+        }).disposed(by: disposeBag)
 
         mobileEditView.text.bind(to: viewModel.mobileString).disposed(by: mobileEditView.disposeBag)
         emailEditView.text.bind(to: viewModel.emailString).disposed(by: emailEditView.disposeBag)

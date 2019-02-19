@@ -25,6 +25,18 @@ struct Helper {
         UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     
+    static func showAlertON(withTitle title: String = "",
+                          message: String,
+                          actionTitle: String = "Ok",
+                          actionHandler: ((UIAlertAction) -> Void)? = nil ) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: actionTitle, style: .default, handler: actionHandler)
+        alertController.addAction(okayAction)
+        alertController.show()
+    }
+    
+
+    
     static func verifyUrl(urlString: String) -> Bool {
         guard let url = URL(string: urlString) else {
             return false

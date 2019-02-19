@@ -67,6 +67,7 @@
 		93DC3010221C2416003C520D /* RxDataSources.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F862219254F003C520D /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93DC3011221C2416003C520D /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F8B2219254F003C520D /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93DC3012221C2416003C520D /* RxTest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F832219254F003C520D /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC301F221C78FC003C520D /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC301E221C78FC003C520D /* UIAlertController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,7 @@
 		93DC2FF7221C10AA003C520D /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		93DC2FF9221C1724003C520D /* MockContactFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockContactFetching.swift; sourceTree = "<group>"; };
 		93DC3005221C1E04003C520D /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = Carthage/Build/iOS/IQKeyboardManager.framework; sourceTree = "<group>"; };
+		93DC301E221C78FC003C520D /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +371,7 @@
 		93DC2FCE221943D5003C520D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				93DC301E221C78FC003C520D /* UIAlertController+Extension.swift */,
 				93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */,
 				93DC2FC52219313B003C520D /* Optional+Extension.swift */,
 				93DC2FC92219318C003C520D /* UITableView+Extension.swift */,
@@ -558,6 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93DC2FAE22192DE8003C520D /* ContactDetailsViewController.swift in Sources */,
+				93DC301F221C78FC003C520D /* UIAlertController+Extension.swift in Sources */,
 				93DC2F9F22192B38003C520D /* HomeViewController.swift in Sources */,
 				93DC2FBE22193044003C520D /* ContactRepository.swift in Sources */,
 				93DC2FBC22193008003C520D /* ContactsResponse.swift in Sources */,

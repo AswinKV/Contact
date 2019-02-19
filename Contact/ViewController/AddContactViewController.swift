@@ -44,7 +44,7 @@ class AddContactViewController: UIViewController {
         
         viewModel.errorObservable.subscribe(onNext: { (text) in
             guard let message = text else { return }
-            Helper.showAlert(message: message)
+            Helper.showAlertON(message: message)
         }).disposed(by: disposeBag)
         
         mobileEditView.text.bind(to: viewModel.mobileString).disposed(by: mobileEditView.disposeBag)
