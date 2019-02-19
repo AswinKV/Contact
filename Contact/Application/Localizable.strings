@@ -23,3 +23,5 @@ save = "Save";
 invalidPhone = "Invalid phone number";
 invalidName = "Name can not be empty";
 invalidEmail = "Invalid email";
+camera = "Camera";
+album = "Photo Album";

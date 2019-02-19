@@ -13,7 +13,6 @@ struct DisplayString {
     struct Contact {
         static let edit = NSLocalizedString("edit", comment: "edit button text in contact details screen.")
         static let done = NSLocalizedString("done", comment: "done button text in edit contact screen.")
-        static let cancel = NSLocalizedString("cancel", comment: "cancel button text in edit contact screen.")
         static let add = NSLocalizedString("add", comment: "add plus icon in home screen.")
         static let message = NSLocalizedString("message", comment: "message text in contact details screen.")
         static let call = NSLocalizedString("call", comment: "call text in contact details screen.")
@@ -33,6 +32,9 @@ struct DisplayString {
     
     struct General {
         static let ok = NSLocalizedString("ok", comment: "")
+        static let cancel = NSLocalizedString("cancel", comment: "cancel button text in edit contact screen.")
+        static let camera = NSLocalizedString("camera", comment: "save button text in add contact screen.")
+        static let album = NSLocalizedString("album", comment: "save button text in add contact screen.")
     }
     
     struct Title {

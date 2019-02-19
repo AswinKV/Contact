@@ -66,7 +66,7 @@ final class Navigation {
     private func showEditContactDetails(viewModel: EditContactViewModelling) {
         let viewController = EditContactViewController(viewModel: viewModel)
         let doneButton = UIBarButtonItem(title: DisplayString.Contact.done, style: UIBarButtonItem.Style.done, target: self, action: nil)
-        let cancelButton = UIBarButtonItem(title: DisplayString.Contact.cancel, style: UIBarButtonItem.Style.plain, target: self, action: nil)
+        let cancelButton = UIBarButtonItem(title: DisplayString.General.cancel, style: UIBarButtonItem.Style.plain, target: self, action: nil)
         viewController.navigationItem.rightBarButtonItem = doneButton
         viewController.navigationItem.leftBarButtonItem = cancelButton
         doneButton.rx.tap.bind(to: viewModel.doneTapped).disposed(by: viewController.disposeBag)
@@ -87,7 +87,7 @@ final class Navigation {
     private func showAddContactDetails(viewModel: AddContactViewModelling) {
         let viewController = AddContactViewController(viewModel: viewModel)
         let doneButton = UIBarButtonItem(title: DisplayString.Contact.save, style: UIBarButtonItem.Style.done, target: self, action: nil)
-        let cancelButton = UIBarButtonItem(title: DisplayString.Contact.cancel, style: UIBarButtonItem.Style.plain, target: self, action: nil)
+        let cancelButton = UIBarButtonItem(title: DisplayString.General.cancel, style: UIBarButtonItem.Style.plain, target: self, action: nil)
         viewController.navigationItem.rightBarButtonItem = doneButton
         viewController.navigationItem.leftBarButtonItem = cancelButton
         doneButton.rx.tap.bind(to: viewModel.doneTapped).disposed(by: viewController.disposeBag)

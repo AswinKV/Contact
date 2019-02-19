@@ -192,13 +192,13 @@ class AddContactViewController: UIViewController {
     private func showUploadAlert() {
         
         let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: DisplayString.General.camera, style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .camera)
         }))
-        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title:  DisplayString.General.album, style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .photoLibrary)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: DisplayString.General.cancel, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
