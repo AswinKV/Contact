@@ -25,10 +25,11 @@ class ContactEditView: UIView {
         addViews()
     }
     
-    func prepare(with title: String,and value: String, isEditable: Bool = false) {
+    func prepare(with title: String,and value: String, isEditable: Bool = false, keyboardType: UIKeyboardType) {
         label.text = title
         textField.text = value
         textField.isUserInteractionEnabled = isEditable
+        textField.keyboardType = keyboardType
     }
 
     private func addViews() {

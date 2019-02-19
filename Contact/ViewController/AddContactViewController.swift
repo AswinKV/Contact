@@ -143,28 +143,28 @@ class AddContactViewController: UIViewController {
     private var mobileEditView: ContactEditView!
     private func setupMobileEditView(mobile: String) {
         mobileEditView = ContactEditView()
-        mobileEditView.prepare(with: DisplayString.Contact.mobile, and: mobile, isEditable: true)
+        mobileEditView.prepare(with: DisplayString.Contact.mobile, and: mobile, isEditable: true, keyboardType: .phonePad)
         mainStackView.addArrangedSubview(mobileEditView)
     }
     
     private var emailEditView: ContactEditView!
     private func setupEmailEditView(email: String) {
         emailEditView = ContactEditView()
-        emailEditView.prepare(with: DisplayString.Contact.email, and: email, isEditable: true)
+        emailEditView.prepare(with: DisplayString.Contact.email, and: email, isEditable: true, keyboardType: .emailAddress)
         mainStackView.addArrangedSubview(emailEditView)
     }
     
     private var firstNameEditView: ContactEditView!
     private func setupFirstNameEditView(name: String) {
         firstNameEditView = ContactEditView()
-        firstNameEditView.prepare(with: DisplayString.Contact.firstName, and: name, isEditable: true)
+        firstNameEditView.prepare(with: DisplayString.Contact.firstName, and: name, isEditable: true, keyboardType: .namePhonePad)
         mainStackView.addArrangedSubview(firstNameEditView)
     }
     
     private var lastNameEditView: ContactEditView!
     private func setupLastNameEditView(name: String) {
         lastNameEditView = ContactEditView()
-        lastNameEditView.prepare(with: DisplayString.Contact.lastName, and: name, isEditable: true)
+        lastNameEditView.prepare(with: DisplayString.Contact.lastName, and: name, isEditable: true, keyboardType: .namePhonePad)
         mainStackView.addArrangedSubview(lastNameEditView)
     }
     

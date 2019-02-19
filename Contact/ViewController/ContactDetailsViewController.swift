@@ -208,14 +208,14 @@ class ContactDetailsViewController: UIViewController {
     private var mobileEditView: ContactEditView!
     private func setupMobileEditView(mobile: String) {
         mobileEditView = ContactEditView()
-        mobileEditView.prepare(with: DisplayString.Contact.mobile, and: mobile)
+        mobileEditView.prepare(with: DisplayString.Contact.mobile, and: mobile, keyboardType: .phonePad)
         secondStackView.addArrangedSubview(mobileEditView)
     }
 
     private var emailEditView: ContactEditView!
     private func setupEmailEditView(email: String) {
         emailEditView = ContactEditView()
-        emailEditView.prepare(with: DisplayString.Contact.email, and: email)
+        emailEditView.prepare(with: DisplayString.Contact.email, and: email, keyboardType: .emailAddress)
         secondStackView.addArrangedSubview(emailEditView)
     }
     
