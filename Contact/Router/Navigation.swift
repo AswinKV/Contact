@@ -9,6 +9,9 @@
 import Foundation
 import UIKit
 
+var activityIndicatorView = RUIActivityIndicatorView()
+var activityIndicatorCoverView : UIView = UIView()
+
 final class Navigation {
     var navigationController: UINavigationController
     let application: Application
@@ -110,5 +113,4 @@ final class Navigation {
         activityIndicatorView.stopAnimating()
         activityIndicatorView.hidesWhenStopped = true
     }
-
 }

@@ -9,9 +9,6 @@
 import Foundation
 import UIKit
 
-var activityIndicatorView = RUIActivityIndicatorView()
-var activityIndicatorCoverView : UIView = UIView()
-
 struct Helper {
     static func getCachesDirectory() -> URL {
         let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
@@ -64,32 +61,5 @@ struct Helper {
         activityIndicatorView.removeFromSuperview()
         activityIndicatorView.stopAnimating()
         UIApplication.shared.keyWindow?.isUserInteractionEnabled = true
-    }
-}
-
-class RUIActivityIndicatorView: UIActivityIndicatorView {
-    
-    override init(style: UIActivityIndicatorView.Style) {
-        super.init(style: style)
-        _initRUIActivityIndicatorView()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        _initRUIActivityIndicatorView()
-    }
-    
-    required init(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        _initRUIActivityIndicatorView()
-    }
-    
-    fileprivate func _initRUIActivityIndicatorView() {
-        self.hidesWhenStopped = true
-        self.color = UIColor.white
     }
 }
