@@ -15,6 +15,7 @@ protocol ContactViewModelling {
     var editTapped: PublishSubject<Void> { get }
     var callTapped: PublishSubject<Void> { get }
     var favouriteTapped: PublishRelay<Bool?> { get }
+    var emailTapped: PublishSubject<Void> { get }
     // Output
     var emailIdText: Observable<String> { get }
     var fullNameText: Observable<String> { get }
@@ -23,6 +24,7 @@ protocol ContactViewModelling {
     var mobileText: Observable<String> { get }
     var emailText: Observable<String> { get }
     var callWith: Observable<String> { get }
+    var emailWith: Observable<String> { get }
     var contactUpdated: Observable<Contact> { get }
     var favourite: Observable<Bool> { get }
 }
@@ -32,6 +34,7 @@ class ContactViewModel: ContactViewModelling {
     var editTapped: PublishSubject<Void> = PublishSubject()
     var callTapped: PublishSubject<Void> = PublishSubject()
     var favouriteTapped: PublishRelay<Bool?> = PublishRelay()
+    var emailTapped: PublishSubject<Void> = PublishSubject()
     // Output
     var emailIdText: Observable<String> = Observable.empty()
     var fullNameText: Observable<String> = Observable.empty()
@@ -40,6 +43,7 @@ class ContactViewModel: ContactViewModelling {
     var mobileText: Observable<String> = Observable.empty()
     var emailText: Observable<String> = Observable.empty()
     var callWith: Observable<String> = Observable.empty()
+    var emailWith: Observable<String> = Observable.empty()
     var contactUpdated: Observable<Contact> = Observable.empty()
     var favourite: Observable<Bool> = Observable.empty()
 
@@ -87,6 +91,11 @@ class ContactViewModel: ContactViewModelling {
         
         callWith = callTapped.map({ [unowned self]() -> String? in
                 self.model.phoneNumber
+            })
+            .ignoreNil()
+        
+        emailWith = emailTapped.map({ [unowned self]() -> String? in
+                self.model.email
             })
             .ignoreNil()
         

@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import MessageUI
 
 class ContactDetailsViewController: UIViewController {
     
@@ -50,9 +51,14 @@ class ContactDetailsViewController: UIViewController {
             self.profileImageView.kf.setImage(with: url)
         }).disposed(by: disposeBag)
         callActionView.tapped.bind(to: viewModel.callTapped).disposed(by: callActionView.disposeBag)
+        emailActionView.tapped.bind(to: viewModel.emailTapped).disposed(by: emailActionView.disposeBag)
 
         viewModel.callWith.subscribe(onNext: { [unowned self] (mobile) in
             self.makeCall(mobile: mobile)
+        }).disposed(by: disposeBag)
+        
+        viewModel.emailWith.subscribe(onNext: { [unowned self] (email) in
+            self.sendEmail(email: email)
         }).disposed(by: disposeBag)
         
         viewModel.mobileText.subscribe(onNext: { [unowned self] mobile in
@@ -241,5 +247,24 @@ class ContactDetailsViewController: UIViewController {
 //    Mark:- setup contact actions.
     private func makeCall(mobile: String) {
         Helper.makeCall(toNumber: mobile)
+    }
+    
+    private func sendEmail(email: String) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([email])
+            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+        }
+    }
+}
+
+extension ContactDetailsViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }
