@@ -54,6 +54,20 @@
 		93DC2FE7221AE163003C520D /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE6221AE163003C520D /* Encodable+Extension.swift */; };
 		93DC2FE9221B7FE6003C520D /* RUIIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FE8221B7FE6003C520D /* RUIIndicator.swift */; };
 		93DC2FF3221C0466003C520D /* IQKeyboardManagerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DC2FF2221C0466003C520D /* IQKeyboardManagerSwift.framework */; };
+		93DC2FF6221C0EB3003C520D /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = 93DC2FF5221C0EB3003C520D /* contacts.json */; };
+		93DC2FF8221C10AA003C520D /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FF7221C10AA003C520D /* MockDataProvider.swift */; };
+		93DC2FFA221C1724003C520D /* MockContactFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FF9221C1724003C520D /* MockContactFetching.swift */; };
+		93DC3008221C2416003C520D /* IQKeyboardManager.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC3005221C1E04003C520D /* IQKeyboardManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC3009221C2416003C520D /* IQKeyboardManagerSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2FF2221C0466003C520D /* IQKeyboardManagerSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC300A221C2416003C520D /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F872219254F003C520D /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC300B221C2416003C520D /* Differentiator.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F8A2219254F003C520D /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC300C221C2416003C520D /* Kingfisher.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F852219254F003C520D /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC300D221C2416003C520D /* RxAtomic.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F882219254F003C520D /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC300E221C2416003C520D /* RxBlocking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F842219254F003C520D /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC300F221C2416003C520D /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F892219254F003C520D /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC3010221C2416003C520D /* RxDataSources.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F862219254F003C520D /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC3011221C2416003C520D /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F8B2219254F003C520D /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93DC3012221C2416003C520D /* RxTest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93DC2F832219254F003C520D /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +86,29 @@
 			remoteInfo = Contact;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93DC3007221C2404003C520D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93DC3008221C2416003C520D /* IQKeyboardManager.framework in CopyFiles */,
+				93DC3009221C2416003C520D /* IQKeyboardManagerSwift.framework in CopyFiles */,
+				93DC300A221C2416003C520D /* Alamofire.framework in CopyFiles */,
+				93DC300B221C2416003C520D /* Differentiator.framework in CopyFiles */,
+				93DC300C221C2416003C520D /* Kingfisher.framework in CopyFiles */,
+				93DC300D221C2416003C520D /* RxAtomic.framework in CopyFiles */,
+				93DC300E221C2416003C520D /* RxBlocking.framework in CopyFiles */,
+				93DC300F221C2416003C520D /* RxCocoa.framework in CopyFiles */,
+				93DC3010221C2416003C520D /* RxDataSources.framework in CopyFiles */,
+				93DC3011221C2416003C520D /* RxSwift.framework in CopyFiles */,
+				93DC3012221C2416003C520D /* RxTest.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		93DC2F512219120F003C520D /* Contact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contact.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +167,10 @@
 		93DC2FE6221AE163003C520D /* Encodable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		93DC2FE8221B7FE6003C520D /* RUIIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RUIIndicator.swift; sourceTree = "<group>"; };
 		93DC2FF2221C0466003C520D /* IQKeyboardManagerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManagerSwift.framework; path = Carthage/Build/iOS/IQKeyboardManagerSwift.framework; sourceTree = "<group>"; };
+		93DC2FF5221C0EB3003C520D /* contacts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
+		93DC2FF7221C10AA003C520D /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
+		93DC2FF9221C1724003C520D /* MockContactFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockContactFetching.swift; sourceTree = "<group>"; };
+		93DC3005221C1E04003C520D /* IQKeyboardManager.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IQKeyboardManager.framework; path = Carthage/Build/iOS/IQKeyboardManager.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +244,7 @@
 		93DC2F6822191211003C520D /* ContactTests */ = {
 			isa = PBXGroup;
 			children = (
+				93DC2FF4221C0E4A003C520D /* Mock */,
 				93DC2F6922191211003C520D /* ContactTests.swift */,
 				93DC2F6B22191211003C520D /* Info.plist */,
 			);
@@ -221,6 +263,7 @@
 		93DC2F822219254F003C520D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93DC3005221C1E04003C520D /* IQKeyboardManager.framework */,
 				93DC2FF2221C0466003C520D /* IQKeyboardManagerSwift.framework */,
 				93DC2F872219254F003C520D /* Alamofire.framework */,
 				93DC2F8A2219254F003C520D /* Differentiator.framework */,
@@ -338,6 +381,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		93DC2FF4221C0E4A003C520D /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				93DC2FF5221C0EB3003C520D /* contacts.json */,
+				93DC2FF7221C10AA003C520D /* MockDataProvider.swift */,
+				93DC2FF9221C1724003C520D /* MockContactFetching.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -366,6 +419,7 @@
 				93DC2F6122191211003C520D /* Sources */,
 				93DC2F6222191211003C520D /* Frameworks */,
 				93DC2F6322191211003C520D /* Resources */,
+				93DC3007221C2404003C520D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -453,6 +507,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DC2FF6221C0EB3003C520D /* contacts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +602,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93DC2FF8221C10AA003C520D /* MockDataProvider.swift in Sources */,
 				93DC2F6A22191211003C520D /* ContactTests.swift in Sources */,
+				93DC2FFA221C1724003C520D /* MockContactFetching.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +809,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66JLRX2SMQ;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS/**";
 				INFOPLIST_FILE = ContactTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -772,6 +831,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66JLRX2SMQ;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS/**";
 				INFOPLIST_FILE = ContactTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

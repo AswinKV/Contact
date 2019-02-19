@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import Contact
+import RxBlocking
 
 class ContactTests: XCTestCase {
 
@@ -28,6 +29,20 @@ class ContactTests: XCTestCase {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
+        }
+    }
+    
+    func testContactResponseModel() {
+        let provider = MockContactFetching()
+        do {
+            guard let firstContact = try provider.getContacts().toBlocking().first()?.first,
+                let firstName = firstContact.firstName else {
+                XCTFail("error occured while parsing")
+                return
+            }
+            XCTAssertEqual(firstName, "1223")
+        } catch {
+            XCTFail(error.localizedDescription)
         }
     }
 
