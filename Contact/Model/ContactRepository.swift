@@ -18,9 +18,13 @@ class ContactRepository: ContactFetching {
     }
 
     func getContacts() -> Observable<[Contact]> {
-        let contacts = getContactsFromCache()
-        if !contacts.isEmpty {
-            return returnContactsObservable(contacts: contacts)
+        do {
+            let contacts = try getContactsFromCache()
+            if !contacts.isEmpty {
+                return returnContactsObservable(contacts: contacts)
+            }
+        } catch {
+            print("log to crash reporting -> \(error.localizedDescription)")
         }
         return getContactsFromAPI()
     }
@@ -72,14 +76,13 @@ class ContactRepository: ContactFetching {
         }
     }
 
-    private func getContactsFromCache() -> [Contact] {
+    private func getContactsFromCache() throws -> [Contact] {
         do {
             let contacts = try cacheManager.forKey(value: "contacts").retrieve(as: [Contact].self)
             return contacts
-        } catch let error {
-            print("log to crash reporting -> \(error)")
+        } catch {
+            throw CacheError.fileDoesNotExist
         }
-        fatalError()
     }
     
     private func getContactsFromAPI() -> Observable<[Contact]> {
