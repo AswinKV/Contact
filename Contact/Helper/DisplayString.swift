@@ -32,6 +32,7 @@ struct DisplayString {
         static let invalidPhone = NSLocalizedString("invalidPhone", comment: "")
         static let invalidName = NSLocalizedString("invalidName", comment: "")
         static let invalidEmail = NSLocalizedString("invalidEmail", comment: "")
+        static let networkError = NSLocalizedString("networkError", comment: "")
     }
     
     struct General {

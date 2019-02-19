@@ -35,7 +35,6 @@
 		93DC2FBE22193044003C520D /* ContactRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBD22193044003C520D /* ContactRepository.swift */; };
 		93DC2FC022193097003C520D /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FBF22193097003C520D /* CacheManager.swift */; };
 		93DC2FC2221930E8003C520D /* CustomSection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */; };
-		93DC2FC422193110003C520D /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC322193110003C520D /* UIAlertController+Extension.swift */; };
 		93DC2FC62219313B003C520D /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC52219313B003C520D /* Optional+Extension.swift */; };
 		93DC2FC822193163003C520D /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC722193163003C520D /* Helper.swift */; };
 		93DC2FCA2219318C003C520D /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DC2FC92219318C003C520D /* UITableView+Extension.swift */; };
@@ -149,7 +148,6 @@
 		93DC2FBD22193044003C520D /* ContactRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRepository.swift; sourceTree = "<group>"; };
 		93DC2FBF22193097003C520D /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomSection+Extension.swift"; sourceTree = "<group>"; };
-		93DC2FC322193110003C520D /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 		93DC2FC52219313B003C520D /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
 		93DC2FC722193163003C520D /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		93DC2FC92219318C003C520D /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
@@ -372,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				93DC2FC1221930E8003C520D /* CustomSection+Extension.swift */,
-				93DC2FC322193110003C520D /* UIAlertController+Extension.swift */,
 				93DC2FC52219313B003C520D /* Optional+Extension.swift */,
 				93DC2FC92219318C003C520D /* UITableView+Extension.swift */,
 				93DC2FCF221943E8003C520D /* UIColor+Extension.swift */,
@@ -579,7 +576,6 @@
 				93DC2FAA22192D36003C520D /* ContactCellViewModel.swift in Sources */,
 				93DC2FC022193097003C520D /* CacheManager.swift in Sources */,
 				93DC2FE3221A5822003C520D /* ContactRequest.swift in Sources */,
-				93DC2FC422193110003C520D /* UIAlertController+Extension.swift in Sources */,
 				93DC2FDB22196E95003C520D /* AddContactViewController.swift in Sources */,
 				93DC2FA822192CC8003C520D /* ContactCell.swift in Sources */,
 				93DC2FAC22192D98003C520D /* ContactViewModel.swift in Sources */,

@@ -37,6 +37,7 @@ class NetworkProvider<T: Decodable> : DataProvider {
                 .responseJSON(completionHandler: { response in
                     guard let jsonData = response.data else {
                         observer.onError(NetworkError.invalidData)
+                        Helper.showAlert(message: DisplayString.Validation.networkError)
                         return }
                     guard let userResponse = try? JSONDecoder().decode(T.self, from: jsonData) else {
                         observer.onError(NetworkError.cantParse)

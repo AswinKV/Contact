@@ -22,7 +22,7 @@ struct Helper {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okayAction = UIAlertAction(title: actionTitle, style: .default, handler: actionHandler)
         alertController.addAction(okayAction)
-        alertController.show()
+        UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     
     static func verifyUrl(urlString: String) -> Bool {
