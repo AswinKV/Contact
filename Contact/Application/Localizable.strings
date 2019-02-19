@@ -25,3 +25,5 @@ invalidName = "Name can not be empty";
 invalidEmail = "Invalid email";
 camera = "Camera";
 album = "Photo Album";
+favourited = "Favourited.";
+unfavourited = "Unfavourited.";

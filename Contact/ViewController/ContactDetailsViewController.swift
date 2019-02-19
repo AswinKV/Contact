@@ -50,6 +50,7 @@ class ContactDetailsViewController: UIViewController {
             self.profileImageView.kf.setImage(with: url)
         }).disposed(by: disposeBag)
         callActionView.tapped.bind(to: viewModel.callTapped).disposed(by: callActionView.disposeBag)
+
         viewModel.callWith.subscribe(onNext: { [unowned self] (mobile) in
             self.makeCall(mobile: mobile)
         }).disposed(by: disposeBag)
@@ -61,6 +62,24 @@ class ContactDetailsViewController: UIViewController {
         viewModel.emailText.subscribe(onNext: { [unowned self] email in
             self.setupEmailEditView(email: email)
         }).disposed(by: disposeBag)
+        
+        viewModel.contactUpdated.subscribe(onNext: {[unowned self] contact in
+                self.favouriteActionView.removeFromSuperview()
+                if let favourite = contact.favorite {
+                    self.setupFavouriteActionView(isHighlighted: favourite)
+                    self.favouriteActionView.tapped.map { !favourite }
+                        .bind(to: self.viewModel.favouriteTapped)
+                        .disposed(by: self.favouriteActionView.disposeBag)
+                }
+        }).disposed(by: disposeBag)
+
+        viewModel.favourite.subscribe(onNext: {[unowned self] favourite in
+                self.favouriteActionView.removeFromSuperview()
+                self.setupFavouriteActionView(isHighlighted: favourite)
+                self.favouriteActionView.tapped.map { !favourite }
+                    .bind(to: self.viewModel.favouriteTapped)
+                    .disposed(by: self.favouriteActionView.disposeBag)
+                }).disposed(by: disposeBag)
 
     }
     // Mark : Setup views.
@@ -157,35 +176,35 @@ class ContactDetailsViewController: UIViewController {
     private func setupMessageActionView() {
         messageActionView = ContactActionView()
         messageActionView.prepare(with: UIImage(named: "chat"), and: DisplayString.Contact.message)
+        mainStackView.addArrangedSubview(messageActionView)
     }
     
     private var callActionView: ContactActionView!
     private func setupCallActionView() {
         callActionView = ContactActionView()
         callActionView.prepare(with: UIImage(named: "call"), and: DisplayString.Contact.call)
+        mainStackView.addArrangedSubview(callActionView)
     }
 
     private var emailActionView: ContactActionView!
     private func setupEmailActionView() {
         emailActionView = ContactActionView()
         emailActionView.prepare(with: UIImage(named: "mail"), and: DisplayString.Contact.email)
+        mainStackView.addArrangedSubview(emailActionView)
     }
 
     private var favouriteActionView: ContactActionView!
-    private func setupFavouriteActionView() {
+    private func setupFavouriteActionView(isHighlighted: Bool) {
         favouriteActionView = ContactActionView()
-        favouriteActionView.prepare(with: UIImage(named: "star-outline"), and: DisplayString.Contact.favourite, isHighlighted: false)
+        favouriteActionView.prepare(with: UIImage(named: "star-outline"), and: DisplayString.Contact.favourite, isHighlighted: isHighlighted)
+        mainStackView.addArrangedSubview(favouriteActionView)
     }
 
     private func setupContactActionStack() {
         setupMessageActionView()
         setupCallActionView()
         setupEmailActionView()
-        setupFavouriteActionView()
-        mainStackView.addArrangedSubview(messageActionView)
-        mainStackView.addArrangedSubview(callActionView)
-        mainStackView.addArrangedSubview(emailActionView)
-        mainStackView.addArrangedSubview(favouriteActionView)
+        setupFavouriteActionView(isHighlighted: false)
     }
     
     private var secondStackView: UIStackView!

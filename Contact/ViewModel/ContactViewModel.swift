@@ -8,12 +8,13 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 protocol ContactViewModelling {
     // Input
     var editTapped: PublishSubject<Void> { get }
     var callTapped: PublishSubject<Void> { get }
-
+    var favouriteTapped: PublishRelay<Bool?> { get }
     // Output
     var emailIdText: Observable<String> { get }
     var fullNameText: Observable<String> { get }
@@ -22,12 +23,15 @@ protocol ContactViewModelling {
     var mobileText: Observable<String> { get }
     var emailText: Observable<String> { get }
     var callWith: Observable<String> { get }
+    var contactUpdated: Observable<Contact> { get }
+    var favourite: Observable<Bool> { get }
 }
 
 class ContactViewModel: ContactViewModelling {
     // Input
     var editTapped: PublishSubject<Void> = PublishSubject()
     var callTapped: PublishSubject<Void> = PublishSubject()
+    var favouriteTapped: PublishRelay<Bool?> = PublishRelay()
     // Output
     var emailIdText: Observable<String> = Observable.empty()
     var fullNameText: Observable<String> = Observable.empty()
@@ -36,6 +40,8 @@ class ContactViewModel: ContactViewModelling {
     var mobileText: Observable<String> = Observable.empty()
     var emailText: Observable<String> = Observable.empty()
     var callWith: Observable<String> = Observable.empty()
+    var contactUpdated: Observable<Contact> = Observable.empty()
+    var favourite: Observable<Bool> = Observable.empty()
 
     let model: ContactDetail
     let repository: ContactFetching
@@ -52,6 +58,10 @@ class ContactViewModel: ContactViewModelling {
         
         emailIdText = Observable
             .just(model.email)
+            .ignoreNil()
+        
+        favourite = Observable
+            .just(model.favorite)
             .ignoreNil()
         
         fullNameText = Observable
@@ -79,5 +89,19 @@ class ContactViewModel: ContactViewModelling {
                 self.model.phoneNumber
             })
             .ignoreNil()
+        
+        contactUpdated =  favouriteTapped
+            .asObservable().ignoreNil()
+            .map {[unowned self](favourite) -> ContactRequest in
+                return ContactRequest(email: self.model.email, favourite: favourite, firstName: self.model.firstName, lastName: self.model.lastName, phoneNumber: self.model.phoneNumber)
+            }
+            .flatMap { [unowned self] in
+                self.updateContact(contact: $0)
+            }
+    }
+    
+    private func updateContact(contact: ContactRequest) -> Observable<Contact> {
+        guard let identifier = model.id else { fatalError() }
+        return repository.updateContact(with: identifier.description, and: contact)
     }
 }
