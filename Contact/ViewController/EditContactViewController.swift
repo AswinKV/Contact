@@ -39,18 +39,22 @@ class EditContactViewController: UIViewController {
     
     private func setupBindings() {
         viewModel.mobileText.subscribe(onNext: { [unowned self] mobile in
+            self.mobileEditView.removeFromSuperview()
             self.setupMobileEditView(mobile: mobile)
         }).disposed(by: disposeBag)
         
         viewModel.emailText.subscribe(onNext: { [unowned self] email in
+            self.emailEditView.removeFromSuperview()
             self.setupEmailEditView(email: email)
         }).disposed(by: disposeBag)
         
         viewModel.firstNameText.subscribe(onNext: { [unowned self] name in
+            self.firstNameEditView.removeFromSuperview()
             self.setupFirstNameEditView(name: name)
         }).disposed(by: disposeBag)
         
         viewModel.lastNameText.subscribe(onNext: { [unowned self] name in
+            self.lastNameEditView.removeFromSuperview()
             self.setupLastNameEditView(name: name)
         }).disposed(by: disposeBag)
         
@@ -58,11 +62,10 @@ class EditContactViewController: UIViewController {
             self.showUploadAlert()
         }).disposed(by: disposeBag)
 
-
         mobileEditView.text.bind(to: viewModel.mobileString).disposed(by: mobileEditView.disposeBag)
-        emailEditView.text.bind(to: viewModel.emailString).disposed(by: mobileEditView.disposeBag)
-        firstNameEditView.text.bind(to: viewModel.firstNameString).disposed(by: mobileEditView.disposeBag)
-        lastNameEditView.text.bind(to: viewModel.lastNameString).disposed(by: mobileEditView.disposeBag)
+        emailEditView.text.bind(to: viewModel.emailString).disposed(by: emailEditView.disposeBag)
+        firstNameEditView.text.bind(to: viewModel.firstNameString).disposed(by: firstNameEditView.disposeBag)
+        lastNameEditView.text.bind(to: viewModel.lastNameString).disposed(by: lastNameEditView.disposeBag)
         uploadButton.rx.tap.bind(to: viewModel.uploadTapped).disposed(by: disposeBag)
     }
     
@@ -81,7 +84,16 @@ class EditContactViewController: UIViewController {
         setupGradientView()
         setupProfileImageView()
         setUpStackView()
+        setupEditViews()
     }
+    
+    private func setupEditViews() {
+        setupMobileEditView(mobile: "")
+        setupEmailEditView(email: "")
+        setupFirstNameEditView(name: "")
+        setupLastNameEditView(name: "")
+    }
+    
     private var gradientView: UIView!
     private func setupGradientView() {
         gradientView = UIView()
